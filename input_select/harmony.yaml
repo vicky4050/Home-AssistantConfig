@@ -1,0 +1,30 @@
+livingroomharmony:
+  name: Harmony Activity
+  options:
+    - PowerOff
+    - Play Xbox One
+    - Watch Fire TV
+    - Watch Kodi
+    - Watch Plex
+    - Watch Youtube
+    - Watch TV
+  initial: PowerOff
+  icon: mdi:remote
+hdmiswitcher:
+  name: HDMI Switcher
+  options:
+    - FireTV
+    - XBox
+    - Kodi
+    - Plex
+    - TV
+  initial: FireTV
+  icon: mdi:remote
+hdmiinput:
+  name: HDMI Input
+  options:
+    - InputHdmi1
+    - InputHdmi2
+    - InputHDMISide
+  initial: InputHdmi2
+  icon: mdi:remote

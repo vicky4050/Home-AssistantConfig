@@ -1,0 +1,21 @@
+media_view:
+  name: Media
+  view: yes
+  icon: mdi:movie
+  entities:
+    - group.harmony_card
+    # - group.light_operations
+    # - group.media_player
+
+harmony_card:
+  control: hidden
+  entities:
+    - sensor.living_room
+    - input_select.livingroomharmony
+    - input_select.hdmiswitcher
+    - input_select.hdmiinput
+    - input_number.harmonyvolume
+    - input_boolean.tv
+    - input_boolean.tvtime
+    - sensor.total_tv_time
+    - script.tv_off

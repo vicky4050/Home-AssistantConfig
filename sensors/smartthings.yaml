@@ -1,0 +1,74 @@
+############################################################
+#
+# Home Assistant Sensors: Smarththings
+#
+############################################################
+
+- platform: mqtt
+  name: "Living Room Temperature"
+  state_topic: "smartthings/Living Room Motion/temperature/state"
+  unit_of_measurement: "F"
+  retain: true
+- platform: mqtt
+  name: "Kitchen Temperature"
+  state_topic: "smartthings/Kitchen/temperature/state"
+  unit_of_measurement: "F"
+  retain: true
+- platform: mqtt
+  name: "Front Door Temperature"
+  state_topic: "smartthings/Front Door/temperature/state"
+  unit_of_measurement: "F"
+  retain: true
+- platform: mqtt
+  name: "Kitchen Door Temperature"
+  state_topic: "smartthings/Door/temperature/state"
+  unit_of_measurement: "F"
+  retain: true
+
+- platform: mqtt
+  name: "Living Room Motion Battery"
+  state_topic: smartthings/Living Room Motion/battery
+  unit_of_measurement: '%'
+  retain: true
+- platform: mqtt
+  name: "Kitchen Motion Battery"
+  state_topic: smartthings/Kitchen/battery
+  unit_of_measurement: '%'
+  retain: true
+- platform: mqtt
+  name: "Front Door Battery"
+  state_topic: smartthings/Front Door/battery
+  unit_of_measurement: '%'
+  retain: true
+- platform: mqtt
+  name: "Kitchen Door Battery"
+  state_topic: smartthings/Door/battery
+  unit_of_measurement: '%'
+  retain: true
+
+- platform: mqtt
+  name: "Samsung Outlet"
+  unit_of_measurement: 'kW'
+  state_topic: smartthings/Outlet/power/state
+  command_topic: smartthings/Outlet/power/cmd
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: template 
+  sensors:
+    average_house_temp:
+      friendly_name: 'Average House Temp'
+      unit_of_measurement: "°F"
+      value_template: >-
+        {{ (float(states.sensor.room_temperature.state) + 
+            float(states.sensor.kitchen_door_temperature.state) + 
+            float(states.sensor.front_door_temperature.state) + 
+            float(states.sensor.kitchen_temperature.state) + 
+            float(states.sensor.living_room_temperature.state))/ 5 | round(2) 
+        }}
+
+# - platform: mqtt
+  # state_topic: "smartthings/Water Leak Sensor/water"
+  # name: "Fish Room Moisture"
+  # retain: true

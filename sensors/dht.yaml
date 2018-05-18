@@ -1,0 +1,7 @@
+- platform: dht
+  sensor: DHT22
+  pin: 22
+  name: "Room"
+  monitored_conditions:
+    - temperature
+    - humidity

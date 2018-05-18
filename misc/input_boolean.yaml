@@ -1,0 +1,6 @@
+alarm01_clock_status:
+  initial: on
+alarm01_clock_trigger:
+  initial: on
+alarm02_clock_status:
+  initial: on

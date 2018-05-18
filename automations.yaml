@@ -1,0 +1,305 @@
+- id: hass_theme
+  alias: Hass Theme
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_select.hass_theme
+  action:
+  - service: frontend.set_theme
+    data_template:
+      name: '{{ states.input_select.hass_theme.state }}'
+- id: '1523806935656'
+  alias: Bedroom Light brightness based on time
+  trigger:
+    platform: state
+    entity_id: group.room3_huelight_groups
+    from: 'off'
+    to: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      delay: ’00:00:10'
+      entity_id: group.room3_huelight_groups
+      brightness: "{%- if now().strftime('%H')| int >= 21 %}\n  150\n{%- elif now().strftime('%H')|\
+        \ int < 7 %}\n  100\n{%- elif now().strftime('%H')| int >= 7 %}\n  25\n{%-\
+        \ endif %}\n"
+- id: '1523806935655'
+  alias: Humidifier On
+  trigger:
+  - below: '35'
+    platform: numeric_state
+    entity_id: sensor.room_humidity
+  action:
+  - service: switch.turn_on
+    entity_id: switch.sonoff_1
+  - delay: 02:30:00
+  - service: switch.turn_off
+    entity_id: switch.sonoff_1
+- id: set_initial_values_on_harmony_start
+  alias: Set initial values on Harmony Start
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: remote.livingroom
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.tv
+  - service: input_select.select_option
+    data_template:
+      entity_id: input_select.livingroomharmony
+      option: '{{ states.remote.livingroom.attributes.current_activity }}
+
+        '
+  - service: input_select.select_option
+    data_template:
+      entity_id: input_select.hdmiswitcher
+      option: "{%- if states.remote.livingroom.attributes.current_activity == \"Watch\
+        \ Fire TV\" -%}\n  FireTV\n{%- elif states.remote.livingroom.attributes.current_activity\
+        \ == \"Watch TV\" -%}\n  TV\n{%- elif states.remote.livingroom.attributes.current_activity\
+        \ == \"Play Xbox One\" -%}\n  XBox\n{%- elif states.remote.livingroom.attributes.current_activity\
+        \ == \"Watch Kodi\" -%}\n  Kodi\n{%- elif states.remote.livingroom.attributes.current_activity\
+        \ == \"Watch Plex\" -%}\n  Plex\n{%- endif -%}\n"
+- id: '1523806935657'
+  alias: Watch TV
+  trigger:
+    platform: event
+    event_type: call_service
+    event_data:
+      domain: scene
+      service: turn_on
+      service_data:
+        entity_id: scene.watch_tv
+  action:
+  - service: remote.turn_on
+    entity_id:
+    - remote.livingroom
+- id: temp_high
+  alias: TempHigh
+  trigger:
+  - above: 92
+    entity_id: sensor.kitchen_temperature
+    platform: numeric_state
+  action:
+  - data:
+      message: Kitchen temperature higher than expected
+      title: Auto-HA
+    service: notify.vicky_pushbullet
+  - data:
+      entity_id: switch.aircondionter_plug
+    service: switch.turn_on
+- id: temp_low
+  alias: TempLow
+  trigger:
+  - below: '62'
+    entity_id: sensor.kitchen_temperature
+    platform: numeric_state
+  action:
+  - data:
+      message: Kitchen temperature lower than expected.
+      title: Auto-HA
+    service: notify.vicky_pushbullet
+- id: room1_huelight_groups_dimmer
+  alias: room1_huelight_groups Dimmer
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_number.room1_huelight_groups_dimmer
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.room1_huelight_groups
+      brightness: '{{states.input_number.room1_huelight_groups_dimmer.state | int
+        }}'
+- id: room2_huelight_groups_dimmer
+  alias: room2_huelight_groups Dimmer
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_number.room2_huelight_groups_dimmer
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.room2_huelight_groups
+      brightness: '{{states.input_number.room2_huelight_groups_dimmer.state | int
+        }}'
+- id: room3_huelight_groups_dimmer
+  alias: room3_huelight_groups Dimmer
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_number.room3_huelight_groups_dimmer
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.room3_huelight_groups
+      brightness: '{{states.input_number.room3_huelight_groups_dimmer.state | int
+        }}'
+- id: room4_huelight_groups_dimmer
+  alias: room4_huelight_groups Dimmer
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_number.room4_huelight_groups_dimmer
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.room4_huelight_groups
+      brightness: '{{states.input_number.room4_huelight_groups_dimmer.state | int
+        }}'
+- id: lr_movement_off
+  alias: Turn off Living room light 10 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.living_room_motion
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.room1_huelight_groups
+- id: SabNZBD_pause
+  alias: Pause SabNZBD
+  trigger:
+  - platform: state
+    entity_id: input_boolean.sabnzbd_turtle_mode
+    to: 'on'
+  action:
+    service: rest_command.sabnzbd_pause
+- id: SabNZBD_resume
+  alias: Resume SabNZBD
+  trigger:
+    platform: state
+    entity_id: input_boolean.sabnzbd_turtle_mode
+    to: 'off'
+  action:
+    service: rest_command.sabnzbd_resume
+- id: '1526038965734'
+  alias: BedRoom Sunrise
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: group.room2_huelight_groups
+    service: light.turn_off
+- id: '1526053217324'
+  alias: ComputerRoom NightLight
+  trigger:
+  - at: '23:59:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: script.nightlight_computerroom
+    service: script.turn_on
+- id: '1526053441243'
+  alias: Work Leave
+  trigger:
+  - entity_id: device_tracker.vicky_phone
+    event: leave
+    platform: zone
+    zone: zone.work
+  condition: []
+  action:
+  - data:
+      message: Auto-HA
+      title: Leaving office
+    service: notify.vicky_pushbullet
+- id: '1526053729210'
+  alias: Work Arrived
+  trigger:
+  - entity_id: device_tracker.vicky_phone
+    event: enter
+    platform: zone
+    zone: zone.work
+  condition: []
+  action:
+  - data:
+      message: Reached Office
+      title: Auto-HA
+    service: notify.vicky_pushbullet
+- id: '1526053729211'
+  alias: Kitchen Motion Activate
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.kitchen_light_auto_disable
+    state: 'off'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.room4_huelight_groups
+- id: '1526053729220'
+  alias: Kitchen Motion Deactivate
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'off'
+    for:
+      minutes: 1
+  condition:
+  - condition: state
+    entity_id: input_boolean.kitchen_light_auto_disable
+    state: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.room4_huelight_groups
+- id: '1526053829220'
+  alias: Kitchen Motion Deactivate After 10PM
+  trigger:
+  - at: '19:00:00'
+    platform: time
+  action:
+  - entity_id: input_boolean.kitchen_light_auto_disable
+    service: homeassistant.turn_on
+- id: '1526163827974'
+  alias: Kitchen Motion Activate Before Sunset
+  trigger:
+  - event: sunset
+    offset: -00:45:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.kitchen_light_auto_disable
+    service: homeassistant.turn_off
+- id: '1526444245827'
+  alias: Welcome Vicky Home
+  trigger:
+  - entity_id: device_tracker.vicky_phone
+    from: away
+    platform: state
+    to: home
+  condition: []
+  action:
+  - timeout: 00:00:40
+    wait_template: '"{{ states(''binary_sensor.back_door'') == ''open'' }}"'
+  - data:
+      data_template:
+        entity_id: media_player.mpd
+        message: '{% set person = ''Vicky'' %} {{ [ "Hi" + person + ", welcome", "Hello"
+          + person, "Greetings" + person ] | random }}
+
+          '
+    service: tts.google_say
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.mpd
+      volume_level: '1'
+- id: '1526584801634'
+  alias: BackDoor Open Chime
+  trigger:
+  - entity_id: binary_sensor.back_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: media_player.mpd
+      message: 'Alert. Back door opened. '
+    service: tts.google_say

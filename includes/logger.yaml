@@ -1,0 +1,7 @@
+default: critical
+logs:
+  homeassistant.components.mqtt: critical
+  homeassistant.components: info
+  homeassistant.components.rfxtrx: debug
+  homeassistant.components.device_tracker: critical
+  homeassistant.components.camera: critical

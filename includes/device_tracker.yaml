@@ -1,0 +1,30 @@
+############################################################
+#
+# Home Assistant Device Tracker
+#
+############################################################
+
+# - platform: owntracks
+  # max_gps_accuracy: 200
+  # track: yes
+  # hide_if_away: yes
+  # waypoints: true
+
+# - platform: mqtt_json
+  # devices:
+    # my_device: zanzito/samsung_s8/location
+
+
+- platform: netgear
+  host: 192.168.1.1
+  username: !secret netgear_user
+  password: !secret netgear_pwd
+  port: 80
+  new_device_defaults:
+    track_new_devices: True
+    hide_if_away: False
+
+- platform: mqtt_json
+  devices:
+    vicky_phone: life360/location/Vicky
+    lechu_phone: life360/location/Lechu

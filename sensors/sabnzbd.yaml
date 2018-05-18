@@ -1,0 +1,12 @@
+# - platform: sabnzbd
+  # host: !secret nas_ip_address
+  # port: 8243
+  # ssl: true
+  # api_key: !secret sabnzbd_api
+  # monitored_variables:
+    # - 'current_status'
+    # - 'speed'
+    # - 'queue_size'
+    # - 'queue_remaining'
+    # - 'disk_size' # Use these for stats on QNAP
+    # - 'disk_free' # Use these for stats on QNAP

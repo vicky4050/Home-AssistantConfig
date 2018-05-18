@@ -1,0 +1,11 @@
+#
+# Prolific use of custom-ui component
+# https://github.com/andrey-git/home-assistant-custom-ui
+#
+group.pibadges:
+  state_card_mode: badges
+  badges_list:
+    - sensor.ram_use
+    - sensor.cpu_use
+    - sensor.disk_use_
+    - sensor.disk_free_

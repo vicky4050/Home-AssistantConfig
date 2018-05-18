@@ -1,0 +1,28 @@
+# ############################################################
+# #
+# # Home Assistant Light 
+# #
+# ############################################################
+# - platform: group
+  # name: Kitchen
+  # entities:
+    # - light.hue_white_lamp_2
+    # - light.hue_white_lamp_5
+
+# - platform: group
+  # name: Living Room
+  # entities:
+    # - light.hue_color_lamp_1
+    # - light.hue_color_lamp_2
+    # - light.hue_color_lamp_3
+# - platform: group
+  # name: Bed Room
+  # entities:
+    # - light.hue_white_lamp_3
+    # - light.hue_white_lamp_6
+# - platform: group
+  # name: Computer Room
+  # entities:
+    # - light.hue_white_lamp_1
+    # - light.hue_white_lamp_4
+

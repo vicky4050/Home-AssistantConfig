@@ -1,0 +1,67 @@
+############################################################
+#
+# Home Assistant Light Groups
+#
+############################################################
+
+ligth_view:
+  view: yes
+  name: Lights
+  icon: mdi:ceiling-light
+  entities:
+    - group.room1_huelight_groups
+    - group.room2_huelight_groups
+    - group.room3_huelight_groups
+    - group.room4_huelight_groups
+    - group.light_dimmer_card
+
+hueLight_groups_card:
+  name: Room Lights
+  entities:
+    - group.room1_huelight_groups
+    - group.room2_huelight_groups
+    - group.room3_huelight_groups
+    - group.room4_huelight_groups
+
+room1_huelight_groups:
+  name: Living Room
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+room2_huelight_groups:
+  name: Bed Room
+  entities:
+    - light.hue_white_lamp_3
+    - light.hue_white_lamp_6
+room3_huelight_groups:
+  name: Fish Room
+  entities:
+    - light.hue_white_lamp_1
+    - light.hue_white_lamp_4
+room4_huelight_groups:
+  name: Kitchen
+  entities:
+    - light.hue_white_lamp_2
+    - light.hue_white_lamp_5
+
+light_dimmer_card:
+  name: Dimmers
+  entities:
+    - input_number.room1_huelight_groups_dimmer
+    - input_number.room2_huelight_groups_dimmer
+    - input_number.room3_huelight_groups_dimmer
+    - input_number.room4_huelight_groups_dimmer
+
+hueLights:
+  name: Light Bulbs
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - light.hue_white_lamp_1
+    - light.hue_white_lamp_2
+    - light.hue_white_lamp_3
+    - light.hue_white_lamp_4
+    - light.hue_white_lamp_5
+    - light.hue_white_lamp_6

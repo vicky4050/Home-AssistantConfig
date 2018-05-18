@@ -1,0 +1,64 @@
+
+    #clock sensors
+    sensor.time:
+      hidden: true
+    sensor.alarm01_clock_hour:
+      hidden: true
+    sensor.alarm01_clock_minute:
+      hidden: true
+    sensor.alarm01_clock_time_long:
+      hidden: true
+    sensor.alarm01_clock_time:
+      friendly_name: 'Alarm01 Clock Setting'
+      icon: mdi:alarm
+
+    sensor.alarm02_clock_hour:
+      hidden: true
+    sensor.alarm02_clock_minute:
+      hidden: true
+    sensor.alarm02_clock_time_long:
+      hidden: true
+    sensor.alarm02_clock_time:
+      friendly_name: 'Alarm02 Clock Setting'
+      icon: mdi:alarm
+
+    switch.switch01:
+      friendly_name: 'Desktop'
+      icon: mdi:desktop-mac
+    switch.switch02:
+      friendly_name: 'ALEXA'
+      icon: mdi:speaker
+    switch.switch04:
+      friendly_name: 'Skimmer'
+      icon: mdi:weather-windy
+    switch.switch05:
+      friendly_name: 'Living Room Lamp'
+      icon: mdi:lamp
+    switch.wake_on_lan:
+      friendly_name: 'QNAP NAS'
+      icon: mdi:harddisk
+    
+    # Alarm clock inputs
+    input_slider.alarm01_clock_hour:
+      friendly_name: 'Hour'
+      icon: mdi:timer
+    input_slider.alarm01_clock_minute:
+      friendly_name: 'Minute'
+      icon: mdi:timer
+    input_boolean.alarm01_clock_status:
+      friendly_name: 'Alarm Clock Status'
+      icon: mdi:alarm-check
+    input_boolean.alarm01_clock_trigger:
+      friendly_name: 'Trigger Other Alarm02'
+      icon: mdi:alarm-check
+
+
+    input_slider.alarm02_clock_hour:
+      friendly_name: 'Hour'
+      icon: mdi:timer
+    input_slider.alarm02_clock_minute:
+      friendly_name: 'Minute'
+      icon: mdi:timer
+    input_boolean.alarm02_clock_status:
+      friendly_name: 'Alarm Clock Status'
+      icon: mdi:alarm-check

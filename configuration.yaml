@@ -1,0 +1,117 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 20
+  unit_system: imperial
+  time_zone: America/New_York
+  customize: !include customize.yaml
+  customize_glob: !include custom-ui.yaml
+  # packages: !include_dir_named packages
+
+config:
+updater:
+  reporting: no
+  # include_used_components: true
+frontend:
+  themes: !include_dir_merge_named themes/
+  javascript_version: latest
+  # extra_html_url:
+    # - /local/custom_ui/state-card-custom-ui.html
+  # extra_html_url_es5:
+    # - /local/custom_ui/state-card-custom-ui-es5.html
+  extra_html_url:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+  extra_html_url_es5:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+customizer:
+  custom_ui: hosted
+discovery:
+  ignore:
+    - plex_mediaserver
+    # - harmony
+    - roku
+    - sabnzbd
+conversation:
+
+ifttt:
+  key: !secret ifttt_api
+sun:
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+  - platform: voicerss
+    api_key: !secret voicerss_key
+alexa:
+  intents: !include_dir_merge_named alexa
+# intent_script: !include intent_script.yaml
+
+remote:
+  - platform: harmony
+    name: livingroom
+    host: !secret harmony_ip
+    username: !secret harmony_email
+    password: !secret harmony_pass
+    activity: Watch Fire TV
+
+panel_iframe:
+  nodered_flows:
+    title: 'Node-RED Flows'
+    url: !secret nodered_url
+    icon: mdi:nodejs
+  # shinobi:
+    # title: Shinobi
+    # icon: mdi:cctv
+    # url: http://192.168.1.200:5000
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+mqtt:
+  broker: core-mosquitto
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: smartthings
+
+
+###########################################################
+#
+# Includes
+#
+############################################################
+
+# Single Files
+history: !include includes/history.yaml
+zone: !include includes/zones.yaml
+recorder: !include includes/recorder.yaml
+logger: !include includes/logger.yaml
+#cloud: !include includes/cloud.yaml
+http: !include includes/http.yaml
+switch: !include includes/switches.yaml
+binary_sensor: !include includes/binary_sensors.yaml
+script: !include scripts.yaml
+notify: !include includes/notify.yaml
+camera: !include includes/cameras.yaml
+shell_command: !include includes/shell_command.yaml
+hue: !include includes/philips_hue.yaml
+# light: !include includes/light.yaml
+media_player: !include includes/media_players.yaml
+device_tracker: !include includes/device_tracker.yaml
+automation: !include automations.yaml
+scene: !include includes/scenes.yaml
+input_boolean: !include includes/input_boolean.yaml
+input_number: !include includes/input_number.yaml
+logbook: !include includes/logbook.yaml
+rest_command: !include includes/rest.yaml
+# Group Merge Directory
+sensor: !include_dir_merge_list sensors/
+
+group: !include_dir_merge_named group/
+input_select: !include_dir_merge_named input_select
+
+

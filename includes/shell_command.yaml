@@ -1,0 +1,5 @@
+# #Created a preset point in Foscam Web Interface named Off which essentially points the camera down and away
+# foscam_turn_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Off&usr=admin&pwd=foscam4050"'
+
+# #Created a preset point in Foscam Web Interface named Main which points in the direction I would like to record
+# foscam_turn_on: 'curl -k "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Main&usr=arunrajappan@gmail.com&pwd=foscam4050"'

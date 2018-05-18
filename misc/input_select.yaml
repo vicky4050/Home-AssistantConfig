@@ -1,0 +1,16 @@
+####
+switch_schedule_week_input:
+  name: Week
+  options:
+  - Weekdays
+  - Weekends
+  - All  
+  - Sunday
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday  
+  initial: Weekdays
+  #icon: mdi:TV

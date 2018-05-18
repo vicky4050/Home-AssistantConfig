@@ -1,0 +1,44 @@
+automation_view:
+  name: Automation
+  view: yes
+  icon: mdi:inbox-arrow-down
+  entities:
+    - group.action_scene_card
+    - group.scenes_card
+    - group.notification_card
+
+action_scene_card:
+  name: Actions
+  control: hidden
+  entities:
+    - scene.watch_tv
+    - script.nightlight_computerroom
+    - script.nightlight_bedroom
+    - script.all_light_eco_mode
+    - script.tts_test
+    - script.relaxdeck
+
+scenes_card:
+  name: Scenes
+  control: hidden
+  entities:
+  - scene.day_dim_lights
+  - scene.evening_bright_lights
+  - scene.night_dim_lights
+  - scene.night_light
+  - scene.all_lights_on
+  - scene.all_lights_off
+  - script.goodnight
+
+notification_card:
+  name: Actions
+  control: hidden
+  entities:
+    - input_boolean.away_mode
+    - input_boolean.guest_mode
+    - input_boolean.school_mode
+    - input_boolean.alert_mode
+    - input_boolean.speech_notifications
+    - input_boolean.text_notifications
+    - input_boolean.kitchen_light_auto_disable
+    - input_boolean.living_light_auto_disable

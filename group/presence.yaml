@@ -1,0 +1,16 @@
+presence_card:
+  name: Presence
+  entities:
+    - sensor.tracker_steps
+    - device_tracker.vicky_phone
+    - device_tracker.lechu_phone
+    - sensor.vicky_phone_battery
+    - sensor.lechu_phone_battery
+    - sensor.away_mode
+
+# Cameras:
+   # view: yes
+   # icon: mdi:eye
+   # entities:
+     # - camera.foscam
+     # - binary_sensor.foscam_motion

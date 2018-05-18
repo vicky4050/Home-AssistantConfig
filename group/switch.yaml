@@ -1,0 +1,31 @@
+switch_view:
+    view: yes
+    name: Switches
+    icon: mdi:power-socket-us
+    entities:
+      - group.wol_card
+      - group.sonoff_card
+      - group.rf_switch_card
+
+wol_card:
+    name: QNAP
+    entities:
+      - switch.wake_on_lan
+rf_switch_card:
+    name: RF Switchs
+    entities:
+      - switch.switch01
+      - switch.switch02
+      - switch.switch03
+      - switch.switch04
+      - switch.switch05
+      - switch.switch06
+      - switch.switch07
+      - switch.switch08
+sonoff_card:
+    name: Sonoff
+    entities:
+      - switch.sonoff_1
+      - switch.sonoff_2
+      - switch.samsung_outlet
+      - switch.tplink_plug_01

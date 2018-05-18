@@ -1,0 +1,26 @@
+weather_view:
+  view: yes
+  icon: mdi:weather-cloudy
+  entities:
+    - group.weather_indoor_card
+    - group.weather_outdoor_card
+    - group.weather_pollen_card
+weather_indoor_card:
+  name: Indoor
+  entities:
+    - sensor.room_temperature
+    - sensor.room_humidity
+weather_outdoor_card:
+  name: Outdoor
+  entities:
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_humidity
+
+weather_pollen_card:
+  name: Pollen
+  entities:
+    - sensor.pollen_level
+    - sensor.cold_flu_risk

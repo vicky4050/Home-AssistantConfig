@@ -1,0 +1,38 @@
+############################################################
+#
+# Home Assistant Sensors: Weather
+#
+############################################################
+
+# - platform: openweathermap
+  # api_key: !secret openweather_api_key
+  # latitude: !secret home_latitude
+  # longitude: !secret home_longitude
+
+- platform: darksky
+  api_key: !secret skydark_api_key
+  forecast:
+    - 1
+    # update_interval: '00:30'
+  monitored_conditions:
+    - summary
+    - hourly_summary
+    - daily_summary
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - dew_point
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - temperature_max
+    - temperature_min
+    - precip_intensity_max
+    - icon
+
+# - platform: wunderground
+  # api_key: !secret wunderground_api_key
+  # monitored_conditions:
+    # - feelslike_f

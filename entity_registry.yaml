@@ -1,0 +1,80 @@
+light.hue_color_lamp_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:72:5f:d3-0b
+light.hue_white_lamp_5:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:c6:f3:df-0b
+light.hue_color_lamp_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:70:62:b7-0b
+light.hue_white_lamp_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:d0:b6:60-0b
+light.hue_white_lamp_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:f8:0b:8c-0b
+light.hue_color_lamp_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:72:44:72-0b
+light.hue_white_lamp_6:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:a3:da:c1-0b
+light.hue_white_lamp_4:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:fb:3a:60-0b
+light.hue_white_lamp_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:d1:fa:dd-0b
+media_player.chrome:
+  name:
+  platform: plex
+  unique_id: jouzfvv676jlk73tspxck87c
+media_player.desktopgji4lot:
+  name:
+  platform: plex
+  unique_id: 6v9r8fmouoi9foqa2y44pldi
+media_player.fire_tv:
+  name:
+  platform: plex
+  unique_id: e778bf39ade0a6cd-com-plexapp-android
+media_player.galaxy_s8:
+  name:
+  platform: plex
+  unique_id: 60f06de40ec3ad2a-com-plexapp-android
+media_player.living_room_speaker:
+  name:
+  platform: cast
+  unique_id: b90fb68f-8ce7-a7b3-6bdf-be581c9019cf
+media_player.computer_room_speaker:
+  name:
+  platform: cast
+  unique_id: a0ee8365-ffc2-569f-b3ee-591ed3a547e4
+sensor.cold__flu_forecasted_average:
+  name:
+  platform: pollen
+  unique_id: 07662_cold__flu_forecasted_average
+sensor.allergy_index_today:
+  name:
+  platform: pollen
+  unique_id: 07662_allergy_index_today
+sensor.allergy_index_forecasted_average:
+  name:
+  platform: pollen
+  unique_id: 07662_allergy_index_forecasted_average
+sensor.allergy_index_historical_average:
+  name:
+  platform: pollen
+  unique_id: 07662_allergy_index_historical_average
+sensor.allergy_index_tomorrow:
+  name:
+  platform: pollen
+  unique_id: 07662_allergy_index_tomorrow

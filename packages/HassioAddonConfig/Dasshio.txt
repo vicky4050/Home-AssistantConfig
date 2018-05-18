@@ -1,0 +1,33 @@
+{
+  "timeout": 5,
+  "buttons": [
+    {
+      "name": "bounty",
+      "address": "AC:63:BE:D4:D3:74",
+      "domain": "light",
+      "service": "toggle",
+      "service_data": "{\"entity_id\": \"group.room2_huelight_groups\"}"
+    },
+    {
+      "name": "ziplock",
+      "address": "68:54:FD:9E:AB:17",
+      "domain": "light",
+      "service": "toggle",
+      "service_data": "{\"entity_id\": \"group.room1_huelight_groups\"}"
+    },
+    {
+      "name": "foodsaver",
+      "address": "44:65:0D:33:7D:E0",
+      "domain": "script",
+      "service": "nightlight_computerroom",
+      "service_data": "{}"
+    },
+    {
+      "name": "stacys",
+      "address": "44:65:0D:06:7E:38",
+      "domain": "light",
+      "service": "toggle",
+      "service_data": "{\"entity_id\": \"group.room4_huelight_groups\"}"
+    }
+  ]
+}

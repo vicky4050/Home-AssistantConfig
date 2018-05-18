@@ -1,0 +1,8 @@
+exclude:
+  domains:
+    - sun
+  entities:
+    - media_player.plex
+# include: 
+  # entities:
+  # - sensor.pi_hole

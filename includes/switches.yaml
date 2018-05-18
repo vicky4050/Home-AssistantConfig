@@ -1,0 +1,120 @@
+###########################################################
+#
+# Home Assistant Switches
+#
+############################################################
+
+
+###########################################################
+# QNAP
+############################################################
+- platform: wake_on_lan
+  mac_address: !secret nas_mac_address
+
+###########################################################
+# SONOFF
+############################################################
+- platform: mqtt
+  name: "Sonoff 1"
+  command_topic: "cmnd/sonoff001/power"
+  state_topic: "stat/sonoff001/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Sonoff 2"
+  command_topic: "cmnd/sonoff002/power"
+  state_topic: "stat/sonoff002/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+
+- platform: mqtt
+  name: "Samsung Outlet"
+  state_topic: smartthings/Outlet/power/state
+  command_topic: smartthings/Outlet/power/cmd
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+###########################################################
+# ETECK RF Switches
+############################################################
+- platform: rpi_rf
+  gpio: 17
+  switches:
+   switch01:
+     protocol: 1
+     pulselength: 187
+     code_on: 4543795
+     code_off: 4543804
+   switch02:
+     protocol: 1
+     pulselength: 187
+     code_on: 4543939
+     code_off: 4543948
+   switch03:
+     protocol: 1
+     pulselength: 187
+     code_on: 4544259
+     code_off: 4544268
+   switch04:
+     protocol: 1
+     pulselength: 188
+     code_on: 4545795
+     code_off: 4545804
+   switch05:
+     protocol: 1
+     pulselength: 185
+     code_on: 333107
+     code_off: 333116
+   switch06:
+     protocol: 1
+     pulselength: 186
+     code_on: 335107
+     code_off: 335116
+   switch07:
+     protocol: 1
+     pulselength: 187
+     code_on: 333571
+     code_off: 333580
+   switch08:
+     protocol: 1
+     pulselength: 186
+     code_on: 341251
+     code_off: 341260
+   all_switch:
+     protocol: 1
+     pulselength: 187
+     code_on: 4551939
+     code_off:
+
+
+- platform: tplink
+  name: "tplink_plug_01"
+  host: 192.168.1.24
+
+###########################################################
+# Broadlink RM RF
+############################################################
+# - platform: broadlink
+    # host: !secret broadlink_ip_address
+    # mac: !secret broadlink_mac_address
+    # type: rm_mini
+    # friendly_name: 'MP1'
+
+
+
+###########################################################
+# Foscam
+############################################################
+# - platform: command_line
+  # switches:
+    # #Switch for Foscam Motion Detection
+    # foscam_motion:
+      # command_on: 'curl -k "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=arunrajappan@gmail.com&pwd=foscam4050"'
+      # command_off: 'curl -k "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=arunrajappan@gmail.com&pwd=foscam4050"'
+      # command_state: 'curl -k --silent "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=arunrajappan@gmail.com&pwd=foscam4050" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+      # value_template: '{{ value == "1" }}'

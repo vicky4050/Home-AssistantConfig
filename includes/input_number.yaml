@@ -1,0 +1,32 @@
+harmonyvolume:
+  icon: mdi:volume-high
+  name: Volume
+  initial: 30
+  min: 1
+  max: 100
+  step: 1
+
+room1_huelight_groups_dimmer:
+  name: Living Room
+  initial: 100
+  min: 1
+  max: 254
+  step: 10
+room2_huelight_groups_dimmer:
+  name: Bedroom
+  initial: 100
+  min: 1
+  max: 254
+  step: 10
+room3_huelight_groups_dimmer:
+  name: Computer Room
+  initial: 100
+  min: 1
+  max: 254
+  step: 10
+room4_huelight_groups_dimmer:
+  name: Kitchen
+  initial: 100
+  min: 1
+  max: 254
+  step: 10

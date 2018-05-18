@@ -1,0 +1,19 @@
+{
+  "ssl": true,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "users": [
+    {
+      "username": "",
+      "password": "",
+      "permissions": "*"
+    }
+  ],
+  "http_node_user": [
+    {
+      "username": "",
+      "password": ""
+    }
+  ],
+  "projects": false
+}

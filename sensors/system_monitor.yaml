@@ -1,0 +1,18 @@
+############################################################
+#
+# Home Assistant Sensors: System
+#
+############################################################
+- platform: cpuspeed
+- platform: systemmonitor
+  resources:
+    - type: disk_use
+    - type: disk_use_percent
+      arg: /
+    - type: disk_free
+      arg: /
+    - type: memory_free
+    - type: memory_use_percent
+    - type: processor_use
+    - type: last_boot
+    - type: since_last_boot

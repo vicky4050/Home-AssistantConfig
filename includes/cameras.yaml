@@ -1,0 +1,13 @@
+
+############################################################
+#
+# Home Assistant Camera Configuration
+#
+############################################################
+
+#Front Door
+- platform: foscam
+  name: "foscam"
+  ip: !secret foscam_ip
+  username: !secret foscam_usr
+  password: !secret foscam_pwd

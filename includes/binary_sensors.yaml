@@ -1,0 +1,62 @@
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/contact/state"
+  payload_on: "open"     #This is case sensitive!
+  payload_off: "closed"    #This is case sensitive!
+  device_class: opening  #Your sensor will read as open/closed instead of on/off with this setting
+  retain: true     #this is important so HA doesn't report the sensor as disconnected
+- platform: mqtt
+  name: "Back Door"
+  state_topic: "smartthings/Door/contact/state"
+  payload_on: "open"
+  payload_off: "closed"
+  device_class: opening
+  retain: true
+
+- platform: mqtt
+  name: "Kitchen Motion"
+  state_topic: "smartthings/Kitchen/motion/state"
+  payload_on: "active"
+  payload_off: "inactive"
+  device_class: motion
+  retain: true
+- platform: mqtt
+  name: "Living Room Motion"
+  state_topic: "smartthings/Living Room Motion/motion/state"
+  payload_on: "active"
+  payload_off: "inactive"
+  device_class: motion
+  retain: true
+
+- platform: mqtt
+  name: "Smoke Alarm"
+  state_topic: "smartthings/Smoke Alarm/smoke/state"
+  payload_on: "detected"
+  payload_off: "clear"
+  device_class: smoke
+  retain: true
+
+
+# - platform: mqtt
+  # name: "Zanzito status"
+  # state_topic: "zanzito/samsung_s8/status"
+  # payload_on: "1"
+  # payload_off: "0"
+  # sensor_class: connectivity
+
+- platform: mqtt
+  state_topic: dummy/floorplan/sensor
+  name: Floorplan
+
+
+# - platform: rest
+  # name: "Foscam Motion"
+  # resource: https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=arunrajappan@gmail.com&pwd=foscam4050
+  # device_class: motion
+  # scan_interval: 5
+  # value_template: >-
+    # {%- if "<motionDetectAlarm>2</motionDetectAlarm>" in value -%}
+      # {{ true }}
+    # {%- else -%}
+      # {{ false }}
+    # {%- endif -%}

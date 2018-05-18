@@ -1,0 +1,26 @@
+############################################################
+#
+# Home Assistant Default View
+#
+############################################################
+
+############################################################
+# Default View
+############################################################
+
+default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.hueLight_groups_card
+      - group.wol_card
+      - remote.harmony_hub
+      - group.smartthings_card
+      - group.weather_indoor_card
+      - group.light_dimmer_card
+      - group.presence_card
+
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan

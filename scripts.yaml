@@ -1,0 +1,100 @@
+sonoff_one_on:
+  sequence:
+  - service: homeassistant.turn_on
+    entity_id: switch.sonoff_1
+sonoff_one_off:
+  sequence:
+  - service: homeassistant.turn_off
+    entity_id: switch.sonoff_1
+switch_four_on:
+  sequence:
+  - service: homeassistant.toggle
+    entity_id: switch.switch04
+switch_four_off:
+  sequence:
+  - service: homeassistant.toggle
+    entity_id: switch.switch04
+aquarium_skimmer_off:
+  alias: Turn Off - Skimmer
+  sequence:
+  - delay: 00:00:{{ states.input_slider.skimmershutdowndelay.state | int }}
+  - service: homeassistant.toggle
+    data:
+      entity_id: switch.switch04
+nightlight_computerroom:
+  alias: Night Light Computer Room
+  sequence:
+  - alias: Computer Room Bulb_One ON
+    data:
+      brightness: 1
+      entity_id: light.hue_white_lamp_1
+    service: light.turn_on
+  - alias: Computer Room Bulb_Two OFF
+    data:
+      entity_id: light.hue_white_lamp_4
+    service: light.turn_off
+nightlight_bedroom:
+  alias: Night Light Bed Room
+  sequence:
+  - alias: Bed Room Bulb_One ON
+    data:
+      brightness: 1
+      entity_id: light.hue_white_lamp_3
+    service: light.turn_on
+  - alias: Bed Room Bulb_Two OFF
+    data:
+      entity_id: light.hue_white_lamp_6
+    service: light.turn_off
+all_light_eco_mode:
+  alias: Eco Mode Lights
+  sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: hue_white_lamp_1,{% if is_state('light.hue_color_lamp_1', 'on') %},
+        light.hue_color_lamp_1{% endif %}{% if is_state('light.hue_color_lamp_2',
+        'on') %}, light.hue_color_lamp_2{% endif %}{% if is_state('light.hue_color_lamp_3',
+        'on') %}, light.hue_color_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_5',
+        'on') %}, light.hue_white_lamp_5{% endif %}{% if is_state('light.hue_white_lamp_2',
+        'on') %}, light.hue_white_lamp_2{% endif %}{% if is_state('light.hue_white_lamp_3',
+        'on') %}, light.hue_white_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_4',
+        'on') %}, light.hue_white_lamp_4{% endif %}{% if is_state('light.hue_white_lamp_6',
+        'on') %},  light.hue_white_lamp_6{% endif %}
+      transition: 1
+      brightness_pct: 50
+tv_off:
+  alias: TV off
+  sequence:
+  - condition: state
+    entity_id: input_boolean.tv
+    state: 'on'
+  - service: remote.send_command
+    data_template:
+      command: home
+      device: 53375767
+      entity_id: remote.livingroom
+  - service: remote.turn_on
+    data_template:
+      entity_id: remote.livingroom
+      activity: poweroff
+restart_ha:
+  alias: Restart HA
+  sequence:
+  - service: homeassistant.restart
+
+
+relaxdeck:
+  sequence:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.mpd
+      media_content_type: playlist
+      media_content_id: DeckMusic
+tts_test:
+  sequence:
+  - service: tts.google_say
+    entity_id: media_player.mpd
+    data_template:
+      message: 'Hello, Human. The temperature outside is currently {{ states.sensor.dark_sky_temperature.state }} degrees.'
+      cache: false
+
+

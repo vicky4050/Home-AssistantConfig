@@ -1,0 +1,5 @@
+use_include_order: True
+include:
+  entities:
+    - device_tracker.vicky_phone
+    - device_tracker.lechu_phone

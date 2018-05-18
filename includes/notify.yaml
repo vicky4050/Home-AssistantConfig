@@ -1,0 +1,25 @@
+
+############################################################
+#
+# Notification Methods
+#
+############################################################
+
+
+# Pushbullet notifications
+- name: vicky_pushbullet
+  platform: pushbullet
+  api_key: !secret pushbullet_api
+
+# Slack Notifications in HomeAssistant Workspace
+- name: slack
+  platform: slack
+  api_key:  !secret slack_api_key
+  default_channel: '#homeautomations'
+
+- name: kodi
+  platform: kodi
+  host: !secret node_computer_ip
+  port: 8080
+  username: !secret kodi_usr
+  password: !secret kodi_pwd

@@ -1,0 +1,6 @@
+- platform: scrape
+  resource: "http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=1&direction=Newark&stop=15TH%20AVE%20%2B%20BEDFORD%20ST&id=19159&showAllBusses=onhttp://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=1&direction=Newark&stop=15TH%20AVE%20%2B%20BEDFORD%20ST&id=19159&showAllBusses=on"
+  name: Bus 144 NY
+  select: "font:nth-of-type(8)"
+  #select: ".prediction_time font"
+  #value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'

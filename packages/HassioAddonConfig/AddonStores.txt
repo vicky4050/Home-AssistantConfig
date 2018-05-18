@@ -1,0 +1,5 @@
+https://github.com/hassio-addons/repository
+https://github.com/editter/hassio-addons
+https://github.com/notoriousbdg/hassio-addons
+https://github.com/vkorn/hassio-addons
+https://github.com/danimtb/dasshio

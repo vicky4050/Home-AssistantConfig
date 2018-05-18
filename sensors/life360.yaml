@@ -1,0 +1,57 @@
+- platform: mqtt
+  name: Vicky Battery
+  state_topic: life360/location/Vicky
+  unit_of_measurement: '%'
+  retain: true
+  value_template: '{{ value_json.battery_level }}'
+- platform: mqtt
+  name: Vicky Address
+  state_topic: life360/location/Vicky
+  retain: true
+  value_template: '{{ value_json.address }}'
+- platform: mqtt
+  name: Lechu Battery
+  state_topic: life360/location/Lechu
+  unit_of_measurement: '%'
+  retain: true
+  value_template: '{{ value_json.battery_level }}'
+- platform: mqtt
+  name: Lechu Address
+  state_topic: life360/location/Lechu
+  retain: true
+  value_template: '{{ value_json.address }}'
+
+- platform: template
+  sensors:
+    vicky_phone_battery:
+      friendly_name: Vicky S8 Battery
+      entity_id: device_tracker.vicky_phone
+      unit_of_measurement: '%'
+      value_template: '{{ states.sensor.vicky_battery.state|int }}'
+      icon_template: >
+            {% set battery_level = states.sensor.vicky_battery.state|default(0)|int %}
+            {% set battery_round = (battery_level / 10) |int * 10 %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+- platform: template
+  sensors:
+    lechu_phone_battery:
+      friendly_name: Lechu iPhone Battery
+      entity_id: device_tracker.lechu_phone
+      unit_of_measurement: '%'
+      value_template: '{{ states.sensor.lechu_battery.state|int }}'
+      icon_template: >
+            {% set battery_level = states.sensor.lechu_battery.state|default(0)|int %}
+            {% set battery_round = (battery_level / 10) |int * 10 %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}

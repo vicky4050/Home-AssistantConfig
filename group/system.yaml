@@ -1,0 +1,51 @@
+############################################################
+#
+# Home Assistant Groups: Control
+#
+############################################################
+
+control_view:
+  name: System Monitor
+  icon: mdi:power
+  view: yes
+  entities:
+    - group.system_card
+    - group.pi_card
+    - group.pibadges
+system_card:
+  name: System
+  entities:
+    - sensor.cpuspeed
+    - sensor.processor_use
+    - sensor.memory_free
+    - sensor.memory_use_percent
+    - sensor.disk_use_percent
+    - sensor.last_boot
+    - updater.updater
+
+# download_card:
+  # name: Sabnzbd
+  # entities:
+    # - input_boolean.sabnzbd_turtle_mode
+    # - sensor.sab_status
+    # - sensor.sab_speed
+    # - sensor.sab_queue
+    # - sensor.sab_left
+    # - sensor.sab_disk
+    # - sensor.sab_disk_free
+
+pi_card:
+  name: HomeAssistant Pi
+  control: hidden
+  entities:
+    - group.pibadges
+    - sensor.since_last_boot
+    - script.restart_ha
+    - switch.pi_shutdown
+    - switch.pi_reboot
+pibadges:
+  entities:
+    - sensor.ram_use
+    - sensor.cpu_use
+    - sensor.disk_use_
+    - sensor.disk_free_

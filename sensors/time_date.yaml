@@ -1,0 +1,18 @@
+- platform: yr
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
+
+- platform: template
+  sensors:
+    friendly_date:      # Thursday June 10th, 2017
+      friendly_name: "Today's Date"
+      value_template: "{{ now().strftime('%A %B %e, %Y') }}"
+    friendly_date_day: # Thu
+      friendly_name: "Today's Day"
+      value_template: "{{ now().strftime('%a') }}"

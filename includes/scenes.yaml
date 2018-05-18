@@ -1,0 +1,102 @@
+###########################################################
+#
+# Home Assistant Scenes
+#
+############################################################
+
+############################################################
+# Action Scenes to trigger automation
+############################################################
+
+- name: Watch TV
+  entities:
+    light.null: on
+
+
+############################################################
+# All Lights Scenes
+############################################################
+- name: All Lights Off
+  entities:
+    group.room1_huelight_groups: off
+    group.room2_huelight_groups: off
+    group.room3_huelight_groups: off
+    group.room4_huelight_groups: off
+    
+- name: All Lights On
+  entities:
+    group.room1_huelight_groups: on
+    group.room2_huelight_groups: on
+    group.room3_huelight_groups: on
+    group.room4_huelight_groups: on
+
+
+- name: Day Dim Lights
+  entities:
+    light.computer_room:
+      state: on
+      brightness: 155
+- name: Evening Bright Lights
+  entities:
+    light.computer_room:
+      state: on
+      brightness: 200
+      transition: 1
+
+- name: Night Dim Lights
+  entities:
+    light.computer_room:
+      state: on
+      brightness: 125
+      transition: 1
+- name: Night Light
+  entities:
+    light.computer_room:
+      state: on
+      brightness: 5
+
+- name: Bedtime
+  entities:
+    light.living_room:
+      state: off
+      transition: 10
+    #bedroom
+    light.hue_white_lamp_6:
+      state: off
+    light.hue_white_lamp_3:
+      state: on
+      brightness: 1
+      transition: 30
+    # light.hue_white_lamp_3:
+      # state: off
+      # transition: 600
+    #kitchen
+    light.kitchen:
+      state: off
+      transition: 180
+    #computer room
+    script.nightlight_computerroom:
+      state: on
+    
+- name: Bedtime_Vicky
+  entities:
+    light.living_room:
+      state: off
+      transition: 10
+    #bedroom
+    light.hue_white_lamp_6:
+      state: off
+    # light.hue_white_lamp_3:
+      # state: on
+      # brightness: 5
+      # transition: 30
+    light.hue_white_lamp_3:
+      state: off
+      transition: 360
+    #kitchen
+    light.kitchen:
+      state: off
+      transition: 180
+    #computer room
+    script.nightlight_computerroom:
+      state: on

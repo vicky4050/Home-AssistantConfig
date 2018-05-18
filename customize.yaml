@@ -1,0 +1,113 @@
+sensor.time: {}
+sensor.yr_symbol:
+  hidden: true
+switch.wake_on_lan:
+  friendly_name: QNAP NAS
+  icon: mdi:nas
+switch.switch02:
+  friendly_name: Desktop
+  icon: mdi:desktop-mac
+switch.switch01:
+  friendly_name: Sw-01
+  icon: mdi:speaker
+switch.switch05:
+  friendly_name: Sw-05
+  icon: mdi:lamp
+switch.switch03:
+  friendly_name: 5G (Sw-03)
+  icon: mdi:water-pump
+switch.switch04:
+  friendly_name: 10G (Sw-04)
+  icon: mdi:water-pump
+switch.switch06:
+  friendly_name: 40G (Sw-06)
+  icon: mdi:water-pump
+switch.switch07:
+  friendly_name: 10N (Sw-07)
+  icon: mdi:water-pump
+sensor.room_humidity:
+  icon: mdi:water-percent
+sensor.tracker_steps: {}
+binary_sensor.front_door:
+  device_class: opening
+  icon: mdi:door
+binary_sensor.back_door:
+  device_class: opening
+  icon: mdi:door
+scene.watch_tv:
+  icon: mdi:television-classic
+scene.all_lights_on:
+  icon: mdi:lightbulb-on
+scene.all_lights_off:
+  icon: mdi:lightbulb
+sensor.cold__flu_percentage:
+  icon: mdi:snowflake
+sensor.cold_flu_risk:
+  icon: mdi:snowflake
+sensor.allergy_average_forecasted:
+  hidden: true
+sensor.allergy_average_historical:
+  hidden: true
+sensor.allergy_index_today:
+  hidden: true
+sensor.allergy_index_tomorrow:
+  hidden: true
+sensor.disease_average_forecasted:
+  hidden: true
+group.default_view:
+  order: 1
+group.ligth_view:
+  order: 1
+group.weather_view:
+  order: 2
+group.switch_view:
+  order: 3
+group.smartthings_view:
+  order: 4
+group.travel_view:
+  order: 5
+group.automation_view:
+  order: 6
+group.control_view:
+  order: 7
+script.nightlight_computerroom:
+  icon: mdi:lightbulb
+switch.sonoff_1:
+  friendly_name: Humidifier Sonoff
+  icon: mdi:power-socket-eu
+sensor.pihole_ads_percentage_blocked_today:
+  friendly_name: Percentage of Ad Traffic Blocked
+  unit_of_measurement: '%'
+  icon: mdi:ticket-percent
+sensor.pihole_domains_blocked:
+  friendly_name: Total Domains Blocked
+  icon: mdi:do-not-disturb
+sensor.pihole_dns_queries_today:
+  friendly_name: DNS Queries Today
+  icon: mdi:note-text
+sensor.pihole_dns_unique_domains:
+  friendly_name: Unique Domains
+  icon: mdi:approval
+sensor.vicky_battery:
+  icon: mdi:battery
+sensor.lechu_battery:
+  icon: mdi:battery
+input_boolean.sabnzbd_turtle_mode:
+  icon: mdi:flash
+switch.aircondionter_plug:
+  icon: mdi:air-conditioner
+sensor.room_temperature:
+  icon: mdi:temperature-fahrenheit
+sensor.kitchen_door_temperature:
+  icon: mdi:temperature-fahrenheit
+sensor.front_door_temperature:
+  icon: mdi:temperature-fahrenheit
+sensor.living_room_temperature:
+  icon: mdi:temperature-fahrenheit
+sensor.kitchen_temperature:
+  icon: mdi:temperature-fahrenheit
+light.hue_hue_lamp_1:
+  friendly_name: Light1
+switch.tplink_plug_01:
+  friendly_name: AC
+  icon: mdi:fan

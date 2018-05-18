@@ -1,0 +1,16 @@
+############################################################
+#
+# Home Assistant Sensor Last Motion Tracking
+#
+############################################################
+- platform: template
+  sensors:
+    template_last_motion:
+      friendly_name: 'Last Motion'
+      value_template: >
+        {%- set sensors = [states.binary_sensor.living_room_motion, states.binary_sensor.kitchen_motion] %}
+        {% for sensor in sensors %}
+          {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
+            {{ sensor.name }}
+          {% endif %}
+        {% endfor %}
