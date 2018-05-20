@@ -29,3 +29,4 @@ sonoff_card:
       - switch.sonoff_2
       - switch.samsung_outlet
       - switch.tplink_plug_01
+      - switch.bass

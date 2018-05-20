@@ -1,0 +1,8 @@
+- platform: command_line
+    switches:
+      pihole_enabled:
+        friendly_name: Enabled
+        command_on: curl -X GET "http://192.168.1.200:85/admin/api.php?enable&auth=a3afa0bf0bcfcd83bcf72bff908a9b06ddb28ffb30f668fd03210038e5d2fb32"
+        command_off: curl -X GET "http://192.168.1.200:85/admin/api.php?disable&auth=a3afa0bf0bcfcd83bcf72bff908a9b06ddb28ffb30f668fd03210038e5d2fb32"
+        command_state: curl -X GET "http://192.168.1.200:85/admin/api.php?status&auth=a3afa0bf0bcfcd83bcf72bff908a9b06ddb28ffb30f668fd03210038e5d2fb32"
+        value_template: "{{ value_json.status == 'enabled' }}"

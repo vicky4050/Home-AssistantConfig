@@ -51,11 +51,12 @@ text_notifications:
   initial: on
 
 kitchen_light_auto_disable:
-  name: "Kitchen Motion De-Activate"
+  name: "Kitchen Motion"
   initial: on
   icon: mdi:run-fast
 
 living_light_auto_disable:
-  name: "Living Motion De-Activate"
+  name: "Living Motion"
   initial: on
   icon: mdi:run-fast
+

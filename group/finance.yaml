@@ -1,0 +1,18 @@
+############################################################
+#
+# Home Assistant Finance Groups
+#
+############################################################
+
+finance_view:
+  view: yes
+  name: Finance
+  icon: mdi:currency-usd
+  entities:
+    - group.investment_card
+
+
+investment_card:
+  name: INR Rate
+  entities:
+    - sensor.usdinr

@@ -4,6 +4,9 @@
 #
 ############################################################
 
+############################################################
+# Smarththings
+############################################################
 - platform: mqtt
   name: "Living Room Temperature"
   state_topic: "smartthings/Living Room Motion/temperature/state"
@@ -45,6 +48,11 @@
   state_topic: smartthings/Door/battery
   unit_of_measurement: '%'
   retain: true
+- platform: mqtt
+  name: "Smoke Alarm Battery"
+  state_topic: smartthings/Smoke Alarm/battery/state
+  unit_of_measurement: '%'
+  retain: true
 
 - platform: mqtt
   name: "Samsung Outlet"
@@ -55,6 +63,9 @@
   payload_off: "off"
   retain: true
 
+############################################################
+# Temperature
+############################################################
 - platform: template 
   sensors:
     average_house_temp:

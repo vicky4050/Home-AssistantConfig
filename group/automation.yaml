@@ -6,7 +6,7 @@ automation_view:
     - group.action_scene_card
     - group.scenes_card
     - group.notification_card
-
+    - group.light_override_card
 action_scene_card:
   name: Actions
   control: hidden
@@ -16,6 +16,7 @@ action_scene_card:
     - script.nightlight_bedroom
     - script.all_light_eco_mode
     - script.tts_test
+    - script.computerroom_sleepmode
     - script.relaxdeck
 
 scenes_card:
@@ -30,8 +31,9 @@ scenes_card:
   - scene.all_lights_off
   - script.goodnight
 
+
 notification_card:
-  name: Actions
+  name: Notification
   control: hidden
   entities:
     - input_boolean.away_mode
@@ -40,5 +42,9 @@ notification_card:
     - input_boolean.alert_mode
     - input_boolean.speech_notifications
     - input_boolean.text_notifications
+light_override_card:
+  name: Motion Activated
+  control: hidden
+  entities:
     - input_boolean.kitchen_light_auto_disable
     - input_boolean.living_light_auto_disable

@@ -44,9 +44,9 @@
   # payload_off: "0"
   # sensor_class: connectivity
 
-- platform: mqtt
-  state_topic: dummy/floorplan/sensor
-  name: Floorplan
+# - platform: mqtt
+  # state_topic: dummy/floorplan/sensor
+  # name: Floorplan
 
 
 # - platform: rest

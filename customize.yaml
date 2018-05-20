@@ -111,3 +111,7 @@ light.hue_hue_lamp_1:
 switch.tplink_plug_01:
   friendly_name: AC
   icon: mdi:fan
+input_boolean.living_light_auto_disable:
+  icon: mdi:eye-off-outline
+input_boolean.kitchen_light_auto_disable:
+  icon: mdi:eye-off-outline

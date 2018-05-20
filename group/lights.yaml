@@ -52,6 +52,8 @@ light_dimmer_card:
     - input_number.room2_huelight_groups_dimmer
     - input_number.room3_huelight_groups_dimmer
     - input_number.room4_huelight_groups_dimmer
+    - input_boolean.kitchen_light_auto_disable
+    - input_boolean.living_light_auto_disable
 
 hueLights:
   name: Light Bulbs

@@ -7,7 +7,7 @@
 sensors_view:
   view: yes
   name: Sensors
-  icon: mdi:gauge
+  icon: mdi:server-network
   entities:
     - group.smartthings_motion_card
     - group.smartthings_door_card
@@ -34,6 +34,7 @@ smartthings_battery_card:
     - sensor.front_door_battery
     - sensor.kitchen_motion_battery
     - sensor.living_room_motion_battery
+    - sensor.smoke_alarm_battery
 
 smartthings_temperature_card:
   name: Room Temperatures
@@ -46,6 +47,7 @@ smoke_alarm_card:
   name: Smoke Alarm
   entities:
     - binary_sensor.smoke_alarm
+    - sensor.smoke_alarm_battery
 
 samsung_outlet_card:
   name: Samsung Outlet

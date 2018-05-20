@@ -29,9 +29,11 @@ customizer:
 discovery:
   ignore:
     - plex_mediaserver
-    # - harmony
+    - harmony
     - roku
     - sabnzbd
+    - philips_hue
+    - deconz
 conversation:
 
 ifttt:
@@ -45,8 +47,8 @@ tts:
   - platform: voicerss
     api_key: !secret voicerss_key
 alexa:
-  intents: !include_dir_merge_named alexa
-# intent_script: !include intent_script.yaml
+#  intents: !include_dir_merge_named alexa
+intent_script: !include includes/intent_script.yaml
 
 remote:
   - platform: harmony
