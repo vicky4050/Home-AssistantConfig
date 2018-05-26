@@ -22,43 +22,57 @@
 ############################################################
 # Entertainment
 ############################################################
-- id: 'set_initial_values_on_harmony_start'
-  alias: Set initial values on Harmony Start
-  initial_state: 'on'
-  trigger:
-    platform: state
-    entity_id: remote.livingroom
-    to: 'on'
-  action:
-  - service: homeassistant.turn_on
-    entity_id: input_boolean.tv
-  - service: input_select.select_option
-    data_template:
-      entity_id: input_select.livingroomharmony
-      option: '{{ states.remote.livingroom.attributes.current_activity }}'
-  - service: input_select.select_option
-    data_template:
-      entity_id: input_select.hdmiswitcher
-      option: "{%- if states.remote.livingroom.attributes.current_activity == \"Watch\
-        \ Fire TV\" -%}\n  FireTV\n{%- elif states.remote.livingroom.attributes.current_activity\
-        \ == \"Watch TV\" -%}\n  TV\n{%- elif states.remote.livingroom.attributes.current_activity\
-        \ == \"Play Xbox One\" -%}\n  XBox\n{%- elif states.remote.livingroom.attributes.current_activity\
-        \ == \"Watch Kodi\" -%}\n  Kodi\n{%- elif states.remote.livingroom.attributes.current_activity\
-        \ == \"Watch Plex\" -%}\n  Plex\n{%- endif -%}\n"
-- id: '1523806935657'
-  alias: Watch TV
-  trigger:
-    platform: event
-    event_type: call_service
-    event_data:
-      domain: scene
-      service: turn_on
-      service_data:
-        entity_id: scene.watch_tv
-  action:
-  - service: remote.turn_on
-    entity_id:
-    - remote.livingroom
+# - id: 'harmony _on'
+  # alias: Harmony On
+  # initial_state: 'on'
+  # trigger:
+    # platform: state
+    # entity_id: remote.livingroom
+    # to: 'on'
+  # action:
+  # - service: homeassistant.turn_on
+    # entity_id: input_boolean.tv
+  # - service: input_select.select_option
+    # data_template:
+      # entity_id: input_select.livingroomharmony
+      # option: '{{ states.remote.livingroom.attributes.current_activity }}'
+  # - service: input_select.select_option
+    # data_template:
+      # entity_id: input_select.hdmiswitcher
+      # option: "{%- if states.remote.livingroom.attributes.current_activity == \"Watch\
+        # \ Fire TV\" -%}\n  FireTV\n{%- elif states.remote.livingroom.attributes.current_activity\
+        # \ == \"Watch TV\" -%}\n  TV\n{%- elif states.remote.livingroom.attributes.current_activity\
+        # \ == \"Play Xbox One\" -%}\n  XBox\n{%- elif states.remote.livingroom.attributes.current_activity\
+        # \ == \"Watch Kodi\" -%}\n  Kodi\n{%- elif states.remote.livingroom.attributes.current_activity\
+        # \ == \"Watch Plex\" -%}\n  Plex\n{%- endif -%}\n"
+# - id: '1523806935658'
+  # alias: Harmony Off
+  # hide_entity: True
+  # trigger:
+    # platform: state
+    # entity_id: input_select.livingroomharmony
+    # to: 'Power Off'
+  # action:
+    # - service: remote.turn_off
+      # entity_id: remote.livingroom
+    # - service: input_select.select_option
+      # entity_id: input_select.livingroomharmony
+      # data_template:
+        # option: "Select Input"
+# - id: '1523806935657'
+  # alias: Watch TV
+  # trigger:
+    # platform: event
+    # event_type: call_service
+    # event_data:
+      # domain: scene
+      # service: turn_on
+      # service_data:
+        # entity_id: scene.watch_tv
+  # action:
+  # - service: remote.turn_on
+    # entity_id:
+    # - remote.livingroom
 ############################################################
 # Temperature
 ############################################################

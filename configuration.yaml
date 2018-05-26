@@ -5,8 +5,11 @@ homeassistant:
   elevation: 20
   unit_system: imperial
   time_zone: America/New_York
-  customize: !include customize.yaml
-  customize_glob: !include custom-ui.yaml
+  # customize: 
+  customize_glob:
+    light.*:
+      custom_ui_state_card: state-card-custom-ui
+  # customize_glob: !include custom-ui.yaml
   # packages: !include_dir_named packages
 
 config:

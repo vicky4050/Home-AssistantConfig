@@ -28,3 +28,5 @@
   devices:
     vicky_phone: life360/location/Vicky
     lechu_phone: life360/location/Lechu
+
+- platform: bluetooth_tracker

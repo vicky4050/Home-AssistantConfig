@@ -14,6 +14,7 @@ sensors_view:
     - group.smartthings_temperature_card
     - group.smoke_alarm_card
     - group.samsung_outlet_card
+    - group.smartthings_battery_card
 
 smartthings_motion_card:
   name: Motion Sensors

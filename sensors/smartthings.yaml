@@ -30,27 +30,27 @@
 
 - platform: mqtt
   name: "Living Room Motion Battery"
-  state_topic: smartthings/Living Room Motion/battery
+  state_topic: "smartthings/Living Room Motion/battery/state"
   unit_of_measurement: '%'
   retain: true
 - platform: mqtt
   name: "Kitchen Motion Battery"
-  state_topic: smartthings/Kitchen/battery
+  state_topic: "smartthings/Kitchen/battery/state"
   unit_of_measurement: '%'
   retain: true
 - platform: mqtt
   name: "Front Door Battery"
-  state_topic: smartthings/Front Door/battery
+  state_topic: "smartthings/Front Door/battery/state"
   unit_of_measurement: '%'
   retain: true
 - platform: mqtt
   name: "Kitchen Door Battery"
-  state_topic: smartthings/Door/battery
+  state_topic: "smartthings/Door/battery/state"
   unit_of_measurement: '%'
   retain: true
 - platform: mqtt
   name: "Smoke Alarm Battery"
-  state_topic: smartthings/Smoke Alarm/battery/state
+  state_topic: "smartthings/Smoke Alarm/battery/state"
   unit_of_measurement: '%'
   retain: true
 

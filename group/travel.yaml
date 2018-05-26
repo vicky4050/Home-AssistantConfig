@@ -9,7 +9,7 @@ travel_view:
 travel_card:
   name: Travel
   entities:
-    - sensor.to_work
-    - sensor.to_home
-    - sensor.phone_to_home
+    # - sensor.to_work
+    # - sensor.to_home
+    # - sensor.phone_to_home
     - sensor.bus_144_ny

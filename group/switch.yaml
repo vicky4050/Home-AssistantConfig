@@ -6,7 +6,7 @@ switch_view:
       - group.wol_card
       - group.sonoff_card
       - group.rf_switch_card
-
+      - group.ir_switch_card
 wol_card:
     name: QNAP
     entities:
@@ -22,6 +22,11 @@ rf_switch_card:
       - switch.switch06
       - switch.switch07
       - switch.switch08
+ir_switch_card:
+    name: IR Switchs
+    entities:
+      - switch.fan
+      - switch.ac_lg
 sonoff_card:
     name: Sonoff
     entities:

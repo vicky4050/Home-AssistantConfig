@@ -17,3 +17,5 @@ secrets.yaml
 known_devices.yaml
 !/.gitignore
 config
+gitupdate.sh
+gitAdd.sh
