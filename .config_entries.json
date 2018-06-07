@@ -3,11 +3,11 @@
         "data": {
             "bridge_id": "001788FFFE2D19AD",
             "host": "192.168.1.12",
-            "username": "APl4c6NzUaRxl9DfygjjrHktRNyVhjDUBt-vz5lC"
+            "username": "9HeCZZ-3-AExDM3EE4xyYncTb29d9pQp6o1Z-wva"
         },
         "domain": "hue",
-        "entry_id": "103f03b0756642e6ad0349ec5bb84e5f",
-        "source": "user",
+        "entry_id": "51491060b5a349a29a06fc49457a4e9e",
+        "source": "discovery",
         "title": "Philips hue",
         "version": 1
     }

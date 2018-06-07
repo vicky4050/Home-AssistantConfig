@@ -1,6 +1,6 @@
-- platform: alpha_vantage
-  api_key: !secret alphavantage_key
-  foreign_exchange:
-    - from: USD
-      to: INR
-      name: USDINR
+# - platform: alpha_vantage
+#   api_key: !secret alphavantage_key
+#   foreign_exchange:
+#     - from: USD
+#       to: INR
+#       name: USDINR

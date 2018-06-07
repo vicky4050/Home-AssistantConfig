@@ -14,6 +14,7 @@ ligth_view:
     - group.room3_huelight_groups
     - group.room4_huelight_groups
     - group.light_dimmer_card
+    - group.aquarium_card
 
 hueLight_groups_card:
   name: Room Lights

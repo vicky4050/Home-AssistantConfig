@@ -1,19 +1,19 @@
-alexa:
-  filter:
-    include_entities:
-      - switch.switch07
-    include_domains:
-      - switch
-    exclude_domains:
-      - light
-      - alert
-      - automation
-      - cover
-      - fan
-      - group
-      - input_boolean
-      - lock
-      - media_player
-      - scene
-      - script
-      - sensor
+# alexa:
+#   filter:
+#     include_entities:
+#       - switch.switch07
+#     include_domains:
+#       - switch
+#     exclude_domains:
+#       - light
+#       - alert
+#       - automation
+#       - cover
+#       - fan
+#       - group
+#       - input_boolean
+#       - lock
+#       - media_player
+#       - scene
+#       - script
+#       - sensor

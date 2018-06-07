@@ -34,8 +34,8 @@
 
 - platform: mqtt
   name: "Samsung Outlet"
-  state_topic: smartthings/Outlet/power/state
-  command_topic: smartthings/Outlet/power/cmd
+  state_topic: smartthings/Outlet/switch
+  command_topic: smartthings/Outlet/switch
   payload_on: "on"
   payload_off: "off"
   retain: true
@@ -92,13 +92,13 @@
      code_off:
 
 
-- platform: tplink
-  name: "tplink_plug_01"
-  host: 192.168.1.24
+# - platform: tplink
+#   name: "tplink_plug_01"
+#   host: 192.168.1.3
 
-- platform: tplink
-  name: "bass"
-  host: 192.168.1.5
+# - platform: tplink
+#   name: "bass"
+#   host: 192.168.1.5
 
 ###########################################################
 # Broadlink RM RF
@@ -121,10 +121,34 @@
 
 
 ###########################################################
-# Foscam
+# command_line
 ############################################################
-# - platform: command_line
-  # switches:
+- platform: command_line
+  switches:    
+    tv_plug:
+      command_on: !secret tv_plug_on_ifttt
+      command_off: !secret tv_plug_off_ifttt
+      friendly_name: "TV Plug"
+    sonoff_co2:
+      command_on: !secret sonoff_co2_on_ifttt
+      command_off: !secret sonoff_co2_off_ifttt
+      friendly_name: "CO2"
+    sonoff_goldie:
+      command_on: !secret sonoff_goldie_on_ifttt
+      command_off: !secret sonoff_goldie_off_ifttt
+      friendly_name: "Goldie"
+    sonoff_twenty:
+      command_on: !secret sonoff_20_on_ifttt
+      command_off: !secret sonoff_20_off_ifttt
+      friendly_name: "20"
+    sonoff_nano:
+      command_on: !secret sonoff_nano_on_ifttt
+      command_off: !secret sonoff_nano_off_ifttt
+      friendly_name: "Shrimp Nano"
+    sonoff_2gallon:
+      command_on: !secret sonoff_2gallon_on_ifttt
+      command_off: !secret sonoff_2gallon_off_ifttt
+      friendly_name: "2 Gallon"
     # #Switch for Foscam Motion Detection
     # foscam_motion:
       # command_on: 'curl -k "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=arunrajappan@gmail.com&pwd=foscam4050"'

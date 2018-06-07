@@ -27,10 +27,9 @@
     - wind_bearing
     - cloud_cover
     - humidity
-    - temperature_max
-    - temperature_min
-    - precip_intensity_max
-    - icon
+    - temperature_high
+    - temperature_low
+    - precip_intensity_max    
 
 # - platform: wunderground
   # api_key: !secret wunderground_api_key

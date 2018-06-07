@@ -6,7 +6,7 @@ presence_card:
     - device_tracker.lechu_phone
     - sensor.vicky_phone_battery
     - sensor.lechu_phone_battery
-    - sensor.away_mode
+    - input_boolean.away_mode
 
 # Cameras:
    # view: yes

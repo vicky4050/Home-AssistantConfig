@@ -41,7 +41,7 @@
             - light.living_room
             - light.bedroom
             - light.computer_room
-            - switch.switch01
+            # - switch.switch01
             - input_boolean.kitchen_light_auto_disable
             - input_boolean.living_light_auto_disable
           states:

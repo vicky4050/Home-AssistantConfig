@@ -8,8 +8,9 @@ switch.switch02:
   friendly_name: Desktop
   icon: mdi:desktop-mac
 switch.switch01:
-  friendly_name: Sw-01
-  icon: mdi:speaker
+  friendly_name: Table Fan
+  haaska_name: Table Fannn
+  icon: mdi:fan
 switch.switch05:
   friendly_name: Sw-05
   icon: mdi:lamp
@@ -18,16 +19,12 @@ switch.switch03:
   icon: mdi:water-pump
 switch.switch04:
   friendly_name: 10G (Sw-04)
-  icon: mdi:water-pump
 switch.switch06:
   friendly_name: 40G (Sw-06)
   icon: mdi:water-pump
 switch.switch07:
   friendly_name: 10N (Sw-07)
   icon: mdi:water-pump
-sensor.room_humidity:
-  icon: mdi:water-percent
-sensor.tracker_steps: {}
 binary_sensor.front_door:
   device_class: opening
   icon: mdi:door
@@ -96,22 +93,31 @@ input_boolean.sabnzbd_turtle_mode:
   icon: mdi:flash
 switch.aircondionter_plug:
   icon: mdi:air-conditioner
-sensor.room_temperature:
-  icon: mdi:temperature-fahrenheit
-sensor.kitchen_door_temperature:
-  icon: mdi:temperature-fahrenheit
-sensor.front_door_temperature:
-  icon: mdi:temperature-fahrenheit
-sensor.living_room_temperature:
-  icon: mdi:temperature-fahrenheit
-sensor.kitchen_temperature:
-  icon: mdi:temperature-fahrenheit
+sensor.room_temperature: {}
 light.hue_hue_lamp_1:
   friendly_name: Light1
 switch.tplink_plug_01:
   friendly_name: AC
-  icon: mdi:fan
+  icon: mdi:air-conditioner
 input_boolean.living_light_auto_disable:
   icon: mdi:blur-off
 input_boolean.kitchen_light_auto_disable:
   icon: mdi:blur-off
+sensor.room_humidity:
+  friendly_name: Room Humidity
+  icon: mdi:water-percent
+  unit_of_measurement: '%'
+switch.tv_plug:
+  friendly_name: TV Plug
+  icon: mdi:television-box
+switch.sonoff_co2:
+  icon: mdi:gas-cylinder
+switch.sonoff_goldie:
+  icon: mdi:fish
+switch.sonoff_twenty:
+  friendly_name: 'Twenty '
+  icon: mdi:fish
+switch.sonoff_2gallon:
+  icon: mdi:image-filter-hdr
+switch.sonoff_nano:
+  icon: mdi:android-head

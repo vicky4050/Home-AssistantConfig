@@ -12,10 +12,10 @@
   api_key: !secret pushbullet_api
 
 # Slack Notifications in HomeAssistant Workspace
-- name: slack
-  platform: slack
-  api_key:  !secret slack_api_key
-  default_channel: '#homeautomations'
+# - name: slack
+#   platform: slack
+#   api_key:  !secret slack_api_key
+#   default_channel: '#homeautomations'
 
 - name: kodi
   platform: kodi
@@ -23,3 +23,9 @@
   port: 8080
   username: !secret kodi_usr
   password: !secret kodi_pwd
+
+- name: vicky_join
+  platform: joaoapps_join
+  api_key: f84833bbd4204807a6fce5b845ef076a
+  device_ids: 920c884f65364aea879986ae8a4cbd0e, 2541735a915d46cbbcf34b9b0d9fa237
+  device_names: S8 Phone, Node804-Chrome

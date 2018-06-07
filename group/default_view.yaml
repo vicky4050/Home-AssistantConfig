@@ -19,7 +19,7 @@ default_view:
       - group.weather_indoor_card
       - group.light_dimmer_card
       - group.presence_card
-
+      - group.aquarium_card
 zones:
   name: Zones
   entities:

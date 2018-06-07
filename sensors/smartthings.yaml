@@ -11,21 +11,25 @@
   name: "Living Room Temperature"
   state_topic: "smartthings/Living Room Motion/temperature/state"
   unit_of_measurement: "F"
+  icon: mdi:thermometer
   retain: true
 - platform: mqtt
   name: "Kitchen Temperature"
   state_topic: "smartthings/Kitchen/temperature/state"
   unit_of_measurement: "F"
+  icon: mdi:thermometer
   retain: true
 - platform: mqtt
   name: "Front Door Temperature"
   state_topic: "smartthings/Front Door/temperature/state"
   unit_of_measurement: "F"
+  icon: mdi:thermometer
   retain: true
 - platform: mqtt
   name: "Kitchen Door Temperature"
   state_topic: "smartthings/Door/temperature/state"
   unit_of_measurement: "F"
+  icon: mdi:thermometer
   retain: true
 
 - platform: mqtt
@@ -62,7 +66,6 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
-
 ############################################################
 # Temperature
 ############################################################

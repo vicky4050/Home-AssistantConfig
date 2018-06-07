@@ -7,10 +7,12 @@ switch_view:
       - group.sonoff_card
       - group.rf_switch_card
       - group.ir_switch_card
+      - group.aquarium_card      
 wol_card:
     name: QNAP
     entities:
       - switch.wake_on_lan
+      - switch.tv_plug
 rf_switch_card:
     name: RF Switchs
     entities:
@@ -35,3 +37,12 @@ sonoff_card:
       - switch.samsung_outlet
       - switch.tplink_plug_01
       - switch.bass
+aquarium_card:
+    name: Aquarium 
+    entities:
+      - switch.sonoff_co2
+      - switch.sonoff_twenty
+      - switch.sonoff_goldie
+      - switch.sonoff_2gallon
+      - switch.sonoff_nano
+      

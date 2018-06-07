@@ -54,3 +54,4 @@ samsung_outlet_card:
   name: Samsung Outlet
   entities:
     - sensor.samsung_outlet
+    - switch.samsung_outlet

@@ -1,13 +1,4 @@
-############################################################
-#
-# Home Assistant - Automations
-#
-############################################################
-
-############################################################
-# Theme
-############################################################
-- id: 'hass_theme'
+- id: hass_theme
   alias: Hass Theme
   initial_state: 'on'
   trigger:
@@ -17,66 +8,7 @@
   - service: frontend.set_theme
     data_template:
       name: '{{ states.input_select.hass_theme.state }}'
-
-
-############################################################
-# Entertainment
-############################################################
-# - id: 'harmony _on'
-  # alias: Harmony On
-  # initial_state: 'on'
-  # trigger:
-    # platform: state
-    # entity_id: remote.livingroom
-    # to: 'on'
-  # action:
-  # - service: homeassistant.turn_on
-    # entity_id: input_boolean.tv
-  # - service: input_select.select_option
-    # data_template:
-      # entity_id: input_select.livingroomharmony
-      # option: '{{ states.remote.livingroom.attributes.current_activity }}'
-  # - service: input_select.select_option
-    # data_template:
-      # entity_id: input_select.hdmiswitcher
-      # option: "{%- if states.remote.livingroom.attributes.current_activity == \"Watch\
-        # \ Fire TV\" -%}\n  FireTV\n{%- elif states.remote.livingroom.attributes.current_activity\
-        # \ == \"Watch TV\" -%}\n  TV\n{%- elif states.remote.livingroom.attributes.current_activity\
-        # \ == \"Play Xbox One\" -%}\n  XBox\n{%- elif states.remote.livingroom.attributes.current_activity\
-        # \ == \"Watch Kodi\" -%}\n  Kodi\n{%- elif states.remote.livingroom.attributes.current_activity\
-        # \ == \"Watch Plex\" -%}\n  Plex\n{%- endif -%}\n"
-# - id: '1523806935658'
-  # alias: Harmony Off
-  # hide_entity: True
-  # trigger:
-    # platform: state
-    # entity_id: input_select.livingroomharmony
-    # to: 'Power Off'
-  # action:
-    # - service: remote.turn_off
-      # entity_id: remote.livingroom
-    # - service: input_select.select_option
-      # entity_id: input_select.livingroomharmony
-      # data_template:
-        # option: "Select Input"
-# - id: '1523806935657'
-  # alias: Watch TV
-  # trigger:
-    # platform: event
-    # event_type: call_service
-    # event_data:
-      # domain: scene
-      # service: turn_on
-      # service_data:
-        # entity_id: scene.watch_tv
-  # action:
-  # - service: remote.turn_on
-    # entity_id:
-    # - remote.livingroom
-############################################################
-# Temperature
-############################################################
-- id: 'temp_high'
+- id: temp_high
   alias: TempHigh
   trigger:
   - above: 92
@@ -113,10 +45,7 @@
   - delay: 02:30:00
   - service: switch.turn_off
     entity_id: switch.sonoff_1
-############################################################
-# SabNZBD
-############################################################
-- id: 'SabNZBD'
+- id: SabNZBD
   alias: Pause SabNZBD
   trigger:
   - platform: state
@@ -132,9 +61,6 @@
     to: 'off'
   action:
     service: rest_command.sabnzbd_resume
-############################################################
-# Lights
-############################################################
 - id: '1526038965734'
   alias: BedRoom Sunrise
   trigger:
@@ -218,11 +144,8 @@
       brightness: "{%- if now().strftime('%H')| int >= 21 %}\n  150\n{%- elif now().strftime('%H')|\
         \ int < 7 %}\n  100\n{%- elif now().strftime('%H')| int >= 7 %}\n  25\n{%-\
         \ endif %}\n"
-############################################################
-# Presence
-############################################################
 - id: '1526053441243'
-  alias: Work Leave
+  alias: Presence Work Leave
   trigger:
   - entity_id: device_tracker.vicky_phone
     event: leave
@@ -235,7 +158,7 @@
       title: Leaving office
     service: notify.vicky_pushbullet
 - id: '1526053729210'
-  alias: Work Arrived
+  alias: Presence Work Arrived
   trigger:
   - entity_id: device_tracker.vicky_phone
     event: enter
@@ -247,10 +170,6 @@
       message: Reached Office
       title: Auto-HA
     service: notify.vicky_pushbullet
-############################################################
-# Motion Activate
-############################################################
-
 - id: '1526053729211'
   alias: Kitchen Motion Activate
   trigger:
@@ -260,12 +179,12 @@
   condition:
     condition: and
     conditions:
-      - condition: time
-        after: '17:00:00'
-        before: '21:00:00'
-      - condition: state
-        entity_id: input_boolean.kitchen_light_auto_disable
-        state: 'off'
+    - condition: time
+      after: '17:00:00'
+      before: '21:00:00'
+    - condition: state
+      entity_id: input_boolean.kitchen_light_auto_disable
+      state: 'off'
   action:
     service: homeassistant.turn_on
     entity_id: group.room4_huelight_groups
@@ -280,12 +199,12 @@
   condition:
     condition: and
     conditions:
-      - condition: time
-        after: '17:00:00'
-        before: '21:00:00'
-      - condition: state
-        entity_id: input_boolean.kitchen_light_auto_disable
-        state: 'off'
+    - condition: time
+      after: '17:00:00'
+      before: '21:00:00'
+    - condition: state
+      entity_id: input_boolean.kitchen_light_auto_disable
+      state: 'off'
   action:
     service: homeassistant.turn_off
     entity_id: group.room4_huelight_groups
@@ -308,7 +227,6 @@
   - data:
       entity_id: input_boolean.kitchen_light_auto_disable
     service: homeassistant.turn_off
-
 - id: lr_movement_off
   alias: Turn off Living room light 10 minutes after last movement
   trigger:
@@ -320,14 +238,8 @@
   action:
     service: homeassistant.turn_off
     entity_id: group.room1_huelight_groups
-
-
-############################################################
-# TTS
-############################################################
-
 - id: '1526444245827'
-  alias: Welcome Vicky Home
+  alias: Presence Welcome Vicky Home
   trigger:
   - entity_id: device_tracker.vicky_phone
     from: away
@@ -346,10 +258,10 @@
         message: '{% set person = ''Vicky'' %} {{ [ "Hi" + person + ", welcome", "Hello"
           + person, "Greetings" + person ] | random }}'
     service: tts.google_say
-  - service: media_player.volume_set
-    data:
+  - data:
       entity_id: media_player.mpd
       volume_level: '1'
+    service: media_player.volume_set
 - id: '1526584801634'
   alias: BackDoor Open Chime
   trigger:
@@ -366,6 +278,54 @@
       entity_id: media_player.mpd
       message: 'Alert. Back door opened. '
     service: tts.google_say
-############################################################
-# 
-############################################################
+- id: '1528129217760'
+  alias: Presence Family is Away
+  trigger:
+  - entity_id: device_tracker.vicky_phone, device_tracker.lechu_phone
+    from: home
+    platform: state
+    to: away
+  condition: []
+  action:
+  - data:
+      message: Movement in home, while family is away.
+    service: notify.vicky_pushbullet
+  - data:
+      entity_id: input_boolean.away_mode
+    service: homeassistant.turn_on
+- id: '1528129427599'
+  alias: Presence At Home
+  trigger:
+  - entity_id: device_tracker.vicky_phone, device_tracker.lechu_phone
+    from: away
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.away_mode
+    service: homeassistant.turn_off
+- id: '1528230968808'
+  alias: TV Plug On
+  trigger:
+  - entity_id: input_boolean.away_mode
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      event: TURN_ON_TVPlug
+    service: ifttt.trigger
+- id: '1528231848789'
+  alias: TV Plug Off
+  trigger:
+  - entity_id: input_boolean.away_mode
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      event: TURN_OFF_TVPlug
+    service: ifttt.trigger
