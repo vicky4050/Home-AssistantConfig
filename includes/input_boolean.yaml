@@ -60,3 +60,7 @@ living_light_auto_disable:
   initial: on
   icon: mdi:run-fast
 
+lg_ac_comfort_mode:
+  name: "Comfort Mode"
+  initial: on
+  icon: mdi:snowflake

@@ -99,20 +99,19 @@ mqtt:
 ############################################################
 
 # Single Files
-history: !include includes/history.yaml
+history: #!include includes/history.yaml
 zone: !include includes/zones.yaml
 recorder: !include includes/recorder.yaml
-logger: !include includes/logger.yaml
+logger: #!include includes/logger.yaml
 #cloud: !include includes/cloud.yaml
 http: !include includes/http.yaml
 switch: !include includes/switches.yaml
 binary_sensor: !include includes/binary_sensors.yaml
-script: !include scripts.yaml
 notify: !include includes/notify.yaml
 camera: !include includes/cameras.yaml
 shell_command: !include includes/shell_command.yaml
 hue: !include includes/philips_hue.yaml
-sabnzbd: !include includes/sabnzbd.yaml
+# sabnzbd: !include includes/sabnzbd.yaml
 # light: !include includes/light.yaml
 media_player: !include includes/media_players.yaml
 device_tracker: !include includes/device_tracker.yaml
@@ -125,7 +124,9 @@ rest_command: !include includes/rest.yaml
 # Group Merge Directory
 sensor: !include_dir_merge_list sensors/
 
+script: !include_dir_merge_named scripts
 group: !include_dir_merge_named group/
 input_select: !include_dir_merge_named input_select
+automation old: !include_dir_merge_list automations
 
 

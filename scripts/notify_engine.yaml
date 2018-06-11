@@ -1,0 +1,34 @@
+######################################################################################################
+###Script to send notifications to IFTTT to notify me on the mobile Phone! Call like this:
+  # action:
+    # service: script.notify_engine
+    # data_template:
+      # value1: 'Startup: Home Assistant is Up and Running!'
+      # value2: ''
+      # value3: "{{ trigger.to_state.state }}"
+      # who: "vicky | lechu"
+
+    # IFTTT Maker channel should look like this: https://files.gitter.im/home-assistant/home-assistant/phkx/blob
+######################################################################################################
+
+notify_engine:
+  sequence:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_boolean.text_notifications
+          state: 'on'
+    - service_template: >
+          {% if who == 'vicky' %}
+            notify.vicky_pushbullet
+          {% elif who == 'lechu' %}
+            notify.lechu_pushbullet
+          {% elif who == 'all' %}
+            notify.vicky_pushbullet
+          {% else %}
+            notify.vicky_pushbullet
+          {% endif %}
+      data_template:
+        message: "{{ value1 }} {{ value2 }} {{ value3 }}"
+        data:
+          subtitle: "HA - Notify Engine"

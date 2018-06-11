@@ -1,0 +1,17 @@
+
+sonoff_one_on:
+  sequence:
+  - service: homeassistant.turn_on
+    entity_id: switch.sonoff_1
+sonoff_one_off:
+  sequence:
+  - service: homeassistant.turn_off
+    entity_id: switch.sonoff_1
+aquarium_skimmer_off:
+  alias: Turn Off - Skimmer
+  sequence:
+  - delay: 00:00:{{ states.input_slider.skimmershutdowndelay.state | int }}
+  - service: homeassistant.toggle
+    data:
+      entity_id: switch.switch04
+

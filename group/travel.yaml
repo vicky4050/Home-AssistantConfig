@@ -5,6 +5,8 @@ travel_view:
     entities: 
       - group.travel_card
       - group.presence_card
+      - group.battery
+      - group.fitbit
 
 travel_card:
   name: Travel

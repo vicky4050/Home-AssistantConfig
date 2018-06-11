@@ -1,12 +1,25 @@
 presence_card:
   name: Presence
   entities:
-    - sensor.tracker_steps
+    - input_boolean.away_mode
     - device_tracker.vicky_phone
     - device_tracker.lechu_phone
+
+fitbit:
+  name: Fitbit
+  entities:
+    - sensor.tracker_steps    
+
+battery:
+  name: Phone Battery
+  entities:
     - sensor.vicky_phone_battery
     - sensor.lechu_phone_battery
-    - input_boolean.away_mode
+    
+family:
+  entities:
+    - device_tracker.vicky_phone
+    - device_tracker.lechu_phone
 
 # Cameras:
    # view: yes

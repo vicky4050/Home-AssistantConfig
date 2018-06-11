@@ -29,7 +29,9 @@
     - humidity
     - temperature_high
     - temperature_low
-    - precip_intensity_max    
+    - precip_intensity_max
+    - icon
+
 
 # - platform: wunderground
   # api_key: !secret wunderground_api_key

@@ -305,27 +305,27 @@
   - data:
       entity_id: input_boolean.away_mode
     service: homeassistant.turn_off
-- id: '1528230968808'
-  alias: TV Plug On
+- id: '1528636057405'
+  alias: Dropbox Sync
   trigger:
-  - entity_id: input_boolean.away_mode
-    from: 'off'
-    platform: state
-    to: 'on'
+  - event: sunrise
+    platform: sun
   condition: []
   action:
   - data:
-      event: TURN_ON_TVPlug
-    service: ifttt.trigger
-- id: '1528231848789'
-  alias: TV Plug Off
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
+- id: '1528636120942'
+  alias: Dropbox Sync remove
   trigger:
-  - entity_id: input_boolean.away_mode
-    from: 'on'
-    platform: state
-    to: 'off'
+  - event: sunset
+    platform: sun
   condition: []
   action:
   - data:
-      event: TURN_OFF_TVPlug
-    service: ifttt.trigger
+      addon: 7box_sync
+      input:
+        command: upd
+    service: hassio.addon_stdin

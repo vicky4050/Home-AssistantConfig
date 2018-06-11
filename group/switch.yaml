@@ -6,13 +6,14 @@ switch_view:
       - group.wol_card
       - group.sonoff_card
       - group.rf_switch_card
-      - group.ir_switch_card
+      - group.fan_ir_switch_card
+      - group.ac_ir_switch_card
       - group.aquarium_card      
 wol_card:
-    name: QNAP
+    name: Switches
     entities:
       - switch.wake_on_lan
-      - switch.tv_plug
+      - switch.tv_plug      
 rf_switch_card:
     name: RF Switchs
     entities:
@@ -24,19 +25,35 @@ rf_switch_card:
       - switch.switch06
       - switch.switch07
       - switch.switch08
-ir_switch_card:
-    name: IR Switchs
+fan_ir_switch_card:
+    name: Tower Fan
     entities:
       - switch.fan
+      - script.fan_speed
+      - script.fan_mode
+      - script.fan_timer     
+     
+ac_ir_switch_card:
+    name: AC Portable
+    entities:
+      - input_boolean.lg_ac_comfort_mode
+      - switch.tplink_plug_01
       - switch.ac_lg
+      - script.ac_night_high_1
+      - script.ac_night_high_2
+      - script.ac_night_high_5
+      - script.ac_night_medium_1
+      - script.ac_night_medium_2
+      - script.ac_night_medium_5
+      - script.ac_night_low_1
+      - script.ac_night_low_2
+      - script.ac_night_low_5
+     
 sonoff_card:
     name: Sonoff
     entities:
       - switch.sonoff_1
       - switch.sonoff_2
-      - switch.samsung_outlet
-      - switch.tplink_plug_01
-      - switch.bass
 aquarium_card:
     name: Aquarium 
     entities:

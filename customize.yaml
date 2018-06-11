@@ -9,7 +9,7 @@ switch.switch02:
   icon: mdi:desktop-mac
 switch.switch01:
   friendly_name: Table Fan
-  haaska_name: Table Fannn
+  haaska_name: Table Fan
   icon: mdi:fan
 switch.switch05:
   friendly_name: Sw-05
@@ -96,9 +96,6 @@ switch.aircondionter_plug:
 sensor.room_temperature: {}
 light.hue_hue_lamp_1:
   friendly_name: Light1
-switch.tplink_plug_01:
-  friendly_name: AC
-  icon: mdi:air-conditioner
 input_boolean.living_light_auto_disable:
   icon: mdi:blur-off
 input_boolean.kitchen_light_auto_disable:
@@ -121,3 +118,20 @@ switch.sonoff_2gallon:
   icon: mdi:image-filter-hdr
 switch.sonoff_nano:
   icon: mdi:android-head
+script.fan_speed:
+  icon: mdi:fan
+script.fan_mode:
+  icon: mdi:settings-box
+script.fan_timer:
+  icon: mdi:av-timer
+switch.fan:
+  friendly_name: Power
+  icon: mdi:power
+  assumed_state: false
+switch.ac_lg:
+  friendly_name: LG AC Plug
+  icon: mdi:air-conditioner
+  assumed_state: false
+switch.tplink_plug_01:
+  friendly_name: AC Plug
+  icon: mdi:power-socket-us

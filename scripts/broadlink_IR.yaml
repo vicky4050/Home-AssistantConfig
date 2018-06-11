@@ -1,0 +1,84 @@
+fan_speed:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.fan_speed
+fan_mode:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.fan_mode
+fan_timer:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.fan_timer
+
+ac_night_high_1:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_high_1
+ac_night_high_2:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_high_2
+ac_night_high_5:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_high_5
+
+ac_night_medium_1:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_medium_1
+ac_night_medium_2:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_medium_2
+ac_night_medium_5:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_medium_5
+
+ac_night_low_1:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_low_1
+ac_night_low_2:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_low_2
+ac_night_low_5:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_low_5
+
+lg_ac_comfort_mode:
+  alias: 'Comfort Mode'
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.ac_night_low_2
+    - delay:
+        minutes: 15
+    - service: switch.turn_off
+      entity_id: switch.fan
+    - delay:
+        hours: 2
+    - service: switch.turn_on
+      entity_id: switch.ac_night_high_5
+    - delay:
+        hours: 2
+    - service: switch.turn_on
+      entity_id: switch.fan
+    - service: switch.turn_off
+      entity_id: switch.tplink_plug_01
+    - delay:
+        hours: 2
+    - service: switch.turn_on
+      entity_id: switch.tplink_plug_01
+    - delay:
+        seconds: 20
+    - service: switch.turn_on
+      entity_id: switch.tplink_plug_01
+    - service: switch.turn_on
+      entity_id: switch.ac_night_medium_1
+    - service: switch.turn_off
+      entity_id: switch.fan
+    
