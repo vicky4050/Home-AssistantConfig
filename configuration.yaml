@@ -121,6 +121,7 @@ input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
 logbook: #!include includes/logbook.yaml
 rest_command: !include includes/rest.yaml
+timer: !include includes/timer.yaml
 # Group Merge Directory
 sensor: !include_dir_merge_list sensors/
 

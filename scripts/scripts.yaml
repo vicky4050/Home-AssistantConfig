@@ -1,0 +1,8 @@
+tv_off_timer:
+  alias: TV - Countdown Timer
+  sequence:
+  - service: timer.start
+    data:
+      entity_id: timer.tv_off_timer 
+      duration: '00:00:02'
+      # duration: '{{ states.input_number.tv_off_timer_hour.state | int }}:{{ states.input_number.tv_off_timer_min.state | int }}:00'

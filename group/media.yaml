@@ -3,10 +3,23 @@ media_view:
   view: yes
   icon: mdi:movie
   entities:
+    - group.nas_card
+    - group.tv_card
     - group.harmony_card
     # - group.light_operations
-    # - group.media_player
+    # - group.light_operations
 
+nas_card:
+  name: QNAP
+  entities:
+    - switch.wake_on_lan
+tv_card:
+  name: Vizio TV
+  entities:
+    - switch.tv_plug
+    - input_boolean.tv_off_timer
+    - input_number.tv_off_timer_hour
+    - input_number.tv_off_timer_min
 harmony_card:
   control: hidden
   entities:

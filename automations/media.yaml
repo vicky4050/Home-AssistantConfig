@@ -1,0 +1,16 @@
+# - alias: TV Timer
+#   trigger:
+#     - platform: state
+#       entity_id: input_number.tv_off_timer_min
+#     # - platform: state
+#     #   entity_id: input_number.tv_off_timer_hour
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.tv_off_timer
+#       state: 'on'    
+#   action:
+#     - delay: '{{states.input_slider.tv_off_timer_hour.state | int }}:{{ states.input_slider.tv_off_timer_min.state | int }}:00'
+#     - service: homeassistant.turn_off
+#       data:
+#         entity_id: switch.tv_plug
+

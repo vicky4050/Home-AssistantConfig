@@ -23,22 +23,60 @@ nightlight_bedroom:
     data:
       entity_id: light.hue_white_lamp_6
     service: light.turn_off
+
+everything_off:
+  alias: 'All Lights Off'
+  sequence:
+  - service: light.turn_off
+    data_template: 
+      entity_id: > 
+       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+
+all_day_lights:
+  alias: 'Bright Lights'
+  sequence:
+  - service: light.turn_on
+    data_template: 
+      entity_id: > 
+       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+      brightness_pct: 100
+      transition: 1
+day_dim_lights:
+  alias: 'Brightness Half'
+  sequence:
+  - service: light.turn_on
+    data_template: 
+      entity_id: > 
+       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+      brightness_pct: 50
+      transition: 1
+      
 all_light_eco_mode:
   alias: Eco Mode Lights
   sequence:
   - service: light.turn_on
     data_template:
-      entity_id: hue_white_lamp_1,{% if is_state('light.hue_color_lamp_1', 'on') %},
-        light.hue_color_lamp_1{% endif %}{% if is_state('light.hue_color_lamp_2',
-        'on') %}, light.hue_color_lamp_2{% endif %}{% if is_state('light.hue_color_lamp_3',
-        'on') %}, light.hue_color_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_5',
-        'on') %}, light.hue_white_lamp_5{% endif %}{% if is_state('light.hue_white_lamp_2',
-        'on') %}, light.hue_white_lamp_2{% endif %}{% if is_state('light.hue_white_lamp_3',
-        'on') %}, light.hue_white_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_4',
-        'on') %}, light.hue_white_lamp_4{% endif %}{% if is_state('light.hue_white_lamp_6',
-        'on') %},  light.hue_white_lamp_6{% endif %}
+      entity_id: > 
+       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
       transition: 1
-      brightness_pct: 50
+      brightness_pct: 10
+
+# all_light_eco_mode:
+#   alias: Eco Mode Lights
+#   sequence:
+#   - service: light.turn_on
+#     data_template:
+#       entity_id: hue_white_lamp_1,{% if is_state('light.hue_color_lamp_1', 'on') %},
+#         light.hue_color_lamp_1{% endif %}{% if is_state('light.hue_color_lamp_2',
+#         'on') %}, light.hue_color_lamp_2{% endif %}{% if is_state('light.hue_color_lamp_3',
+#         'on') %}, light.hue_color_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_5',
+#         'on') %}, light.hue_white_lamp_5{% endif %}{% if is_state('light.hue_white_lamp_2',
+#         'on') %}, light.hue_white_lamp_2{% endif %}{% if is_state('light.hue_white_lamp_3',
+#         'on') %}, light.hue_white_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_4',
+#         'on') %}, light.hue_white_lamp_4{% endif %}{% if is_state('light.hue_white_lamp_6',
+#         'on') %},  light.hue_white_lamp_6{% endif %}
+#       transition: 1
+#       brightness_pct: 50
 
 computerroom_sleepmode:
   alias: 'ComputerRoom SleepMode'

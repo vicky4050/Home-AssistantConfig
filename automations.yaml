@@ -329,3 +329,36 @@
       input:
         command: upd
     service: hassio.addon_stdin
+
+
+- id: 'TVTimerStop'
+  alias: TV Timer
+  initial_state: 'off'
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data: 
+        entity_id: timer.tv_off_timer   
+  condition:
+    - condition: state
+      entity_id: input_boolean.tv_off_timer
+      state: 'on'    
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tv_plug
+- id: 'LightsLeftOn'
+  alias: Light's Left On!!!
+  trigger:
+    platform: state
+    entity_id: input_boolean.away_mode
+    to: 'on'
+  action:
+    - service: light.turn_off
+      data_template: 
+        entity_id: > 
+         {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+    - service: notify.vicky_pushbullet
+      data_template:
+        title: "Alert"
+        message: "No One Is Home And The Lights Were Left On. I Turned Them Off For You"

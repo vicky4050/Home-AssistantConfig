@@ -30,3 +30,20 @@ room4_huelight_groups_dimmer:
   min: 1
   max: 254
   step: 10
+
+tv_off_timer_min:
+  name: TV Timer Min
+  initial: 0
+  min: 0
+  max: 60
+  step: 1
+  mode: slider
+  unit_of_measurement: Minutes
+tv_off_timer_hour:
+  name: TV Timer Hour
+  initial: 2
+  min: 0
+  max: 5
+  step: 1
+  mode: slider
+  unit_of_measurement: Hours

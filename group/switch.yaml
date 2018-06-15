@@ -8,14 +8,14 @@ switch_view:
       - group.rf_switch_card
       - group.fan_ir_switch_card
       - group.ac_ir_switch_card
-      - group.aquarium_card      
+      - group.aquarium_card
 wol_card:
-    name: Switches
-    entities:
-      - switch.wake_on_lan
-      - switch.tv_plug      
+  name: Switches
+  entities:
+    - switch.wake_on_lan
+    - switch.tv_plug
 rf_switch_card:
-    name: RF Switchs
+    name: RF Switches
     entities:
       - switch.switch01
       - switch.switch02

@@ -64,3 +64,8 @@ lg_ac_comfort_mode:
   name: "Comfort Mode"
   initial: on
   icon: mdi:snowflake
+
+tv_off_timer:
+  name: "Timer ON"
+  initial: off
+  icon: mdi:camera-timer

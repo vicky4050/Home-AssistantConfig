@@ -86,10 +86,10 @@ groups:
   - name: Scenes
     entities:
       - script.everything_off
-      - scene.day_dim_lights
-      - scene.evening_bright_lights
-      - scene.night_dim_lights
-      - scene.night_light
+      - script.all_day_lights
+      - script.day_dim_lights
+      - script.all_light_eco_mode
+      
     action:
       domain: homeassistant
       service: turn_on
@@ -111,7 +111,7 @@ groups:
     states:
       - state: 'home'
         class: 'presence-home'
-      - state: 'work'
+      - state: 'Work'
         class: 'presence-work'
       - state: 'away'
         class: 'presence-away'
