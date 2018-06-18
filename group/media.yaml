@@ -16,10 +16,7 @@ nas_card:
 tv_card:
   name: Vizio TV
   entities:
-    - switch.tv_plug
-    - input_boolean.tv_off_timer
-    - input_number.tv_off_timer_hour
-    - input_number.tv_off_timer_min
+    - switch.tv_plug  
 harmony_card:
   control: hidden
   entities:

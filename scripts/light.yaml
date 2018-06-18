@@ -30,7 +30,7 @@ everything_off:
   - service: light.turn_off
     data_template: 
       entity_id: > 
-       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+       {%- for device in dict(states.light|groupby("state"))["on"] if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
 
 all_day_lights:
   alias: 'Bright Lights'
@@ -38,7 +38,7 @@ all_day_lights:
   - service: light.turn_on
     data_template: 
       entity_id: > 
-       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+       {%- for device in dict(states.light|groupby("state"))["on"] if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
       brightness_pct: 100
       transition: 1
 day_dim_lights:
@@ -47,36 +47,20 @@ day_dim_lights:
   - service: light.turn_on
     data_template: 
       entity_id: > 
-       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+       {%- for device in dict(states.light|groupby("state"))["on"] if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
       brightness_pct: 50
       transition: 1
       
 all_light_eco_mode:
-  alias: Eco Mode Lights
+  alias: Dim Lights
   sequence:
   - service: light.turn_on
     data_template:
       entity_id: > 
-       {%- for device in dict(states.light|groupby("state"))["on"] %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
+       {%- for device in dict(states.light|groupby("state"))["on"] if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}
       transition: 1
       brightness_pct: 10
 
-# all_light_eco_mode:
-#   alias: Eco Mode Lights
-#   sequence:
-#   - service: light.turn_on
-#     data_template:
-#       entity_id: hue_white_lamp_1,{% if is_state('light.hue_color_lamp_1', 'on') %},
-#         light.hue_color_lamp_1{% endif %}{% if is_state('light.hue_color_lamp_2',
-#         'on') %}, light.hue_color_lamp_2{% endif %}{% if is_state('light.hue_color_lamp_3',
-#         'on') %}, light.hue_color_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_5',
-#         'on') %}, light.hue_white_lamp_5{% endif %}{% if is_state('light.hue_white_lamp_2',
-#         'on') %}, light.hue_white_lamp_2{% endif %}{% if is_state('light.hue_white_lamp_3',
-#         'on') %}, light.hue_white_lamp_3{% endif %}{% if is_state('light.hue_white_lamp_4',
-#         'on') %}, light.hue_white_lamp_4{% endif %}{% if is_state('light.hue_white_lamp_6',
-#         'on') %},  light.hue_white_lamp_6{% endif %}
-#       transition: 1
-#       brightness_pct: 50
 
 computerroom_sleepmode:
   alias: 'ComputerRoom SleepMode'
@@ -90,5 +74,29 @@ computerroom_sleepmode:
       entity_id: switch.switch01
     service: switch.turn_off
   - data:
+      entity_id: switch.switch02
+    service: switch.turn_off
+  - data:
       entity_id: script.nightlight_computerroom
+    service: script.turn_on
+
+bedroom_sleepmode:  
+  alias: 'BedRoom SleepMode'
+  sequence:  
+  - data:
+      entity_id: script.nightlight_bedroom
+    service: script.turn_on
+  - delay: '00:30:00'
+  - data:
+      entity_id: script.nightlight_bedroom
+    service: script.turn_off
+bedroom_dimmode:  
+  alias: 'BedRoom DimMode'
+  sequence:  
+  - data:
+      entity_id: light.hue_white_lamp_3
+    service: switch.turn_off
+  - data:
+      entity_id: light.hue_white_lamp_6
+      brightness: 35
     service: script.turn_on

@@ -75,6 +75,8 @@ groups:
       - switch.sonoff_goldie
       - switch.sonoff_2gallon
       - switch.sonoff_nano
+      - switch.tv_plug
+      - switch.switch_01
     states:
       - state: 'on'
         class: 'switch-on'
@@ -89,7 +91,11 @@ groups:
       - script.all_day_lights
       - script.day_dim_lights
       - script.all_light_eco_mode
-      
+      - script.computerroom_sleepmode
+      - script.bedroom_sleepmode
+      - script.nightlight_bedroom
+      - script.bedroom_dimmode
+
     action:
       domain: homeassistant
       service: turn_on

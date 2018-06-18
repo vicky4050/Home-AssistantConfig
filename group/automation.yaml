@@ -12,7 +12,7 @@ action_scene_card:
   control: hidden
   entities:
     - scene.watch_tv
-    - script.tv_off_timer    
+    - script.tv_off_timer_start    
     - script.nightlight_computerroom
     - script.nightlight_bedroom
     - script.all_light_eco_mode

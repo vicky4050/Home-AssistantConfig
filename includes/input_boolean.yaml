@@ -69,3 +69,5 @@ tv_off_timer:
   name: "Timer ON"
   initial: off
   icon: mdi:camera-timer
+
+dummy_tiles:

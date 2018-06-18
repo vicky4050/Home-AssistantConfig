@@ -6,6 +6,9 @@ homeassistant:
   unit_system: imperial
   time_zone: America/New_York  
   customize:  !include customize.yaml
+  # customize_glob:
+  #   light.*:
+  #     custom_ui_state_card: state-card-custom-ui
   
 config:
 updater:
@@ -15,6 +18,14 @@ frontend:
   javascript_version: latest
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
+    - /local/custom_ui/state-card-custom-ui.html
+    - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-custom-ui-es5.html
+    - /local/custom_ui/state-card-tiles_es5.html
+customizer:
+  custom_ui: local
+
 discovery:
   ignore:
     - plex_mediaserver
@@ -84,6 +95,14 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include floorplan.yaml
+  - name: tiles
+    sidebar_title: Tiles
+    sidebar_icon: mdi:view-dashboard
+    url_path: tiles
+    config:
+      entities:
+        - entity: input_boolean.dummy_tiles
+          label: Switch 1
 mqtt:
   broker: core-mosquitto
   username: !secret mqtt_username
@@ -115,16 +134,15 @@ hue: !include includes/philips_hue.yaml
 # light: !include includes/light.yaml
 media_player: !include includes/media_players.yaml
 device_tracker: !include includes/device_tracker.yaml
-automation: !include automations.yaml
+automation: !include automations/automations.yaml
 scene: !include includes/scenes.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
 logbook: #!include includes/logbook.yaml
 rest_command: !include includes/rest.yaml
-timer: !include includes/timer.yaml
+
 # Group Merge Directory
 sensor: !include_dir_merge_list sensors/
-
 script: !include_dir_merge_named scripts
 group: !include_dir_merge_named group/
 input_select: !include_dir_merge_named input_select

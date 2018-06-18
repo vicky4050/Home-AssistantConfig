@@ -1,0 +1,6 @@
+Light2:
+  name: ' '
+  control: hidden
+  view: no
+  entities:
+    - input_boolean.dummy_tiles
