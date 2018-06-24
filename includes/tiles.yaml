@@ -1,0 +1,37 @@
+columns: 4
+row_height: 50px
+gap: 8px
+text_uppercase: false
+entities:
+- entity: light.hue_white_lamp_1
+  label: Comp_Lamp1
+  icon_template: if (entities['light.hue_white_lamp_1'].state === 'on') return 'mdi:lightbulb-on';
+    else return 'mdi:lightbulb'
+  color_off: '#7e7e7e'
+  color_on: '#f4b400'
+  column: 1
+  row: 1
+- entity: light.hue_white_lamp_4
+  label: Comp_Lamp02
+  icon_template: if (entities['light.hue_white_lamp_4'].state === 'on')
+    return 'mdi:lightbulb-on'; else return 'mdi:lightbulb'
+  color_off: '#7e7e7e'
+  color_on: '#f4b400'
+  column: 2
+  row: 1
+- entity: light.hue_white_lamp_2
+  label: Comp_Lamp1
+  icon_template: if (entities['light.hue_white_lamp_1'].state === 'on') return 'mdi:lightbulb-on';
+    else return 'mdi:lightbulb'
+  color_off: '#7e7e7e'
+  color_on: '#f4b400'
+  column: 3
+  row: 1
+- entity: light.hue_white_lamp_3
+  label: Comp_Lamp02
+  icon_template: if (entities['light.hue_white_lamp_4'].state === 'on')
+    return 'mdi:lightbulb-on'; else return 'mdi:lightbulb'
+  color_off: '#7e7e7e'
+  color_on: '#f4b400'
+  column: 4
+  row: 1

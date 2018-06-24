@@ -1,0 +1,165 @@
+#################################################################
+## Harmony Remote
+#################################################################
+- id: set_initial_values_on_harmony_start
+  alias: "Set initial values on Harmony Start"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: remote.livingroom
+    to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.tv
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.livingroomharmony
+        option: >
+          {{ states.remote.livingroom.attributes.current_activity }}
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.harmonyvolume
+        value: >
+            {{ (states.media_player.livingroomsonos.attributes.volume_level * 100) | int }}
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.hdmiswitcher
+        option: >
+          {%- if states.remote.livingroom.attributes.current_activity == "Watch Kodi" -%}
+            Kodi
+          {%- elif states.remote.livingroom.attributes.current_activity == "Watch Fire TV" -%}
+            FireTV
+          {%- elif states.remote.livingroom.attributes.current_activity == "Watch Plex" -%}
+            Plex
+          {%- elif states.remote.livingroom.attributes.current_activity == "Watch Youtube" -%}
+            Youtube
+          {%- elif states.remote.livingroom.attributes.current_activity == "Play Xbox One" -%}
+            Xbox
+          {%- endif -%}
+
+- id: set_volume
+  alias: "Set Volume"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_number.harmonyvolume
+  action:
+    - service: remote.send_command
+      data_template:
+        command: "{{ 'PowerOff' if trigger.to_state.state == 'off' else 'PowerOn' }}"
+        device: 53375767
+        entity_id: remote.livingroom
+        volume_level: >
+          {{states.input_number.harmonyvolume.state | int / 100}}
+
+- id: start_harmony_activity_from_input_select
+  alias: "Start Harmony activity from input_select"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.livingroomharmony
+  action:
+  - service: remote.turn_on
+    data_template:
+      entity_id: remote.livingroom
+      activity: "{{trigger.to_state.state}}"
+
+- id: update_ha_if_harmony_activity_changes
+  alias: "Update HA if Harmony activity changes"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: sensor.living_room
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.livingroomharmony
+        option: "{{trigger.to_state.state}}"
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.hdmiswitcher
+        option: >
+          {%- if trigger.to_state.state == "Watch Kodi" -%}
+            Watch Kodi
+          {%- elif trigger.to_state.state == "Watch Fire TV" -%}
+            Watch Fire TV
+          {%- elif trigger.to_state.state == "Watch Plex" -%}
+            Watch Plex
+          {%- elif trigger.to_state.state == "Watch Youtube" -%}
+            Watch Youtube
+          {%- elif trigger.to_state.state == "Play Xbox One" -%}
+            Play Xbox One
+          {%- endif -%}
+
+- id: update_ha_after_startup
+  alias: Update HA after startup
+  initial_state: 'on'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: '00:00:01'
+    - service: homeassistant.turn_on
+      entity_id: script.initialize_hass
+
+- id: change_hdmi_switcher
+  alias: "Change HDMI Switcher"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.hdmiswitcher
+  action:
+  - service: remote.send_command
+    data_template:
+      command: >-
+        {%- if trigger.to_state.state == "Watch Kodi" -%}
+          32735276
+        {%- elif trigger.to_state.state == "Watch Fire TV" -%}
+          32718833
+        {%- elif trigger.to_state.state == "Watch Plex" -%}
+          Watch Plex
+        {%- elif trigger.to_state.state == "Watch Youtube" -%}
+          32734878
+        {%- elif trigger.to_state.state == "Play Xbox One" -%}
+          32745662
+        {%- endif -%}
+      device: 53375767
+      entity_id: remote.livingroom
+
+- id: change_hdmi_switcher
+  alias: "Change HDMI Switcher"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.hdmiswitcher
+  action:
+  - service: remote.send_command
+    data_template:
+      command: >-
+        {%- if trigger.to_state.state == "FireTV" -%}
+          InputHdmi2
+        {%- elif trigger.to_state.state == "Youtube" -%}
+          InputHdmi2
+        {%- elif trigger.to_state.state == "Kodi" -%}
+          InputHdmi2
+        {%- elif trigger.to_state.state == "Plex" -%}
+
+          InputHdmi2
+        {%- elif trigger.to_state.state == "XBox" -%}
+          InputHdmi1        
+        {%- endif -%}
+      device: 53375767
+      entity_id: remote.livingroom
+
+- id: turn_tv_on_off
+  alias: Turn TV on/off
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_boolean.tv
+  action:
+    service: remote.send_command
+    data_template:
+      command: "{{ 'PowerOff' if trigger.to_state.state == 'off' else 'PowerOn' }}"
+      device: 53375767
+      entity_id: remote.livingroom

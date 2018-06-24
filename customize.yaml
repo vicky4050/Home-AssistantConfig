@@ -135,28 +135,5 @@ switch.ac_lg:
 switch.tplink_plug_01:
   friendly_name: AC Plug
   icon: mdi:power-socket-us
-input_boolean.dummy_tiles:
-  hidden: false
-  custom_ui_state_card: state-card-tiles
-  config:
-    columns: 2
-    row_height: 50px
-    gap: 8px
-    text_uppercase: false
-    entities:
-    - entity: light.lamp
-      label: Lamp
-      icon_template: if (entities['light.lamp'].state === 'on') return 'mdi:lightbulb-on';
-        else return 'mdi:lightbulb'
-      color_off: '#7e7e7e'
-      color_on: '#f4b400'
-      column: 1
-      row: 1
-    - entity: light.gateway_light_7811dcb22ca0
-      label: Gateway Light
-      icon_template: if (entities['light.gateway_light_7811dcb22ca0'].state === 'on')
-        return 'mdi:lightbulb-on'; else return 'mdi:lightbulb'
-      color_off: '#7e7e7e'
-      color_on: '#f4b400'
-      column: 2
-      row: 1
+
+

@@ -47,3 +47,10 @@ tv_off_timer_hour:
   step: 1
   mode: slider
   unit_of_measurement: Hours
+
+kac_target_temp:
+  name: Set Target Temp
+  min: 68
+  max: 80
+  step: 1
+  initial: 77

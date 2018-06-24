@@ -1,0 +1,15 @@
+remote_view:
+  view: yes
+  name: Remotes
+  icon: mdi:remote
+  entities:
+    - group.kenmore_ac_card
+kenmore_ac_card:
+    name: AC Split System
+    entities:
+      - input_select.kac_operation_mode
+      - input_select.kac_fan_mode
+      - input_select.kac_swing_mode
+      - input_number.kac_target_temp
+      - sensor.kc_target
+      - sensor.living_room_temperature

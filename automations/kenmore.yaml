@@ -1,0 +1,61 @@
+# Start Air Conditioner - Cool
+- id: kac_start_cool
+  alias: AC Start Cool
+  hide_entity: True
+  trigger:
+  - platform: state
+    entity_id: input_select.kac_operation_mode
+  - platform: state
+    entity_id: input_select.kac_fan_mode
+  - platform: state
+    entity_id: input_select.kac_swing_mode
+  - platform: state
+    entity_id: input_number.kac_target_temp    
+  condition:
+  - condition: state
+    entity_id: input_select.kac_operation_mode
+    state: 'COOL'
+  action:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: "54943842"      
+      command: "{{ states.sensor.kac_setting_cool.state }}"
+  
+# Start Air Conditioner - Fan
+- id: kac_start_fan
+  alias: AC Start Fan
+  hide_entity: True
+  trigger:
+  - platform: state
+    entity_id: input_select.kac_operation_mode
+  - platform: state
+    entity_id: input_select.kac_fan_mode
+  - platform: state
+    entity_id: input_select.kac_swing_mode
+  condition:
+  - condition: state
+    entity_id: input_select.kac_operation_mode
+    state: 'FAN'
+  action:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: "54943842"      
+      command: "{{ states.sensor.kac_setting_fan.state }}"
+  
+
+# Stop Air Conditioner
+- id: kac_stop
+  alias: AC Stop
+  hide_entity: True
+  trigger:
+  - platform: state
+    entity_id: input_select.kac_operation_mode
+    to: 'Power Off'
+  action:
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data_template:
+      device: "54943842"
+      command: "PowerOff"

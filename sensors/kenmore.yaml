@@ -1,0 +1,12 @@
+- platform: template
+  sensors:
+    kac_setting_cool:
+      friendly_name: 'Current AC Cool Setting'
+      value_template: '{{ states.input_number.kac_target_temp.state | int }}-{{ states.input_select.kac_fan_mode.state }}-{{ states.input_select.kac_swing_mode.state }}'
+    kac_setting_fan:
+      friendly_name: 'Current AC Fan Setting'
+      value_template: 'FAN-{{ states.input_select.kac_fan_mode.state }}-{{ states.input_select.kac_swing_mode.state }}' 
+    kac_target:
+      friendly_name: 'Target Temperature'
+      value_template: '{{ states.input_number.kac_target_temp.state | int }}'
+      unit_of_measurement: '°F'

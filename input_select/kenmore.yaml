@@ -1,0 +1,23 @@
+kac_operation_mode:
+  name: Operating Mode
+  options:
+    - COOL
+    - FAN
+    - Power Off
+  initial: Power Off
+  icon: mdi:settings
+kac_fan_mode:
+  name: Fan Mode
+  options:
+    - AUTO
+    - LOW
+    - MED
+    - HIGH
+  initial: AUTO
+  icon: mdi:fan
+kac_swing_mode:
+  name: Swing Mode
+  options:
+   - TOP
+   - SWING
+  icon: mdi:arrow-expand

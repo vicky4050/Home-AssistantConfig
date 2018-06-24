@@ -1,0 +1,6 @@
+- platform: harmony
+  name: livingroom
+  host: !secret harmony_ip
+  username: !secret harmony_email
+  password: !secret harmony_pass
+  activity: Watch Fire TV

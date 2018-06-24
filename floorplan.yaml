@@ -121,6 +121,9 @@ groups:
         class: 'presence-work'
       - state: 'away'
         class: 'presence-away'
+      - state: 'not_home'
+        class: 'presence-away'
+
 
   - name: Rounded Temps
     entities:

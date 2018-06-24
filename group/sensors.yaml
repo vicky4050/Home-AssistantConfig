@@ -15,6 +15,11 @@ sensors_view:
     - group.smoke_alarm_card
     - group.samsung_outlet_card
     - group.smartthings_battery_card
+    - group.uscis_card
+uscis_card:
+  name: USCIS
+  entities:
+    - sensor.uscis
 
 smartthings_motion_card:
   name: Motion Sensors

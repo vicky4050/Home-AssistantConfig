@@ -1,0 +1,55 @@
+# - id: '1528636057405'
+#   alias: Dropbox Sync
+#   trigger:
+#   - at: '3:00:00'
+#     platform: time
+#   condition: []
+#   action:
+#   - data:
+#       addon: 7be23ff5_dropbox_sync
+#       input:
+#         command: upload
+#     service: hassio.addon_stdin
+# - id: '1528636120942'
+#   alias: Dropbox Sync remove
+#   trigger:
+#   - event: sunset
+#     platform: sun
+#   condition: []
+#   action:
+#   - data:
+#       addon: 7box_sync
+#       input:
+#         command: upd
+#     service: hassio.addon_stdin
+
+
+  
+
+# - id: '1507434167214'
+#   alias: Daily Backup at 3 AM
+#   trigger:
+#   - at: '3:00:00'
+#     platform: time 
+#   action:
+#   - data_template:
+#       name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+#     service: hassio.snapshot_full
+#   # - data_template:
+#   #     message: Created backup named "Automated Backup {{ now().strftime('%Y-%m-%d')}}"
+#   #   service: notify.notify
+
+# - id: '1519082437913'
+#   alias: Copy Backups to Dropbox
+#   trigger:
+#   - at: '4:00:00'
+#     platform: time
+#   action:
+#   - data:
+#       addon: 7be23ff5_dropbox_sync
+#       input:
+#         command: upload
+#     service: hassio.addon_stdin
+#   # - data_template:
+#   #     message: Copied all new backups to Dropbox
+#   #   service: notify.notify

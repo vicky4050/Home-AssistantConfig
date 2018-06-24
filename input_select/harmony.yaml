@@ -17,6 +17,7 @@ hdmiswitcher:
     - XBox
     - Kodi
     - Plex
+    - Youtube
     - TV
   initial: FireTV
   icon: mdi:remote

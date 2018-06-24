@@ -1,0 +1,13 @@
+# links_view:
+#   name: Links
+#   view: yes
+#   icon: mdi:web
+#   entities:
+#     - group.links_card
+
+# links_card:
+#   name: Links
+#   icon: mdi:web
+#   entities:
+#     - weblink.router
+#     - weblink.pi-hole

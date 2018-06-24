@@ -305,58 +305,66 @@
   - data:
       entity_id: input_boolean.away_mode
     service: homeassistant.turn_off
-- id: '1528636057405'
-  alias: Dropbox Sync
-  trigger:
-  - event: sunrise
-    platform: sun
-  condition: []
-  action:
-  - data:
-      addon: 7be23ff5_dropbox_sync
-      input:
-        command: upload
-    service: hassio.addon_stdin
-- id: '1528636120942'
-  alias: Dropbox Sync remove
-  trigger:
-  - event: sunset
-    platform: sun
-  condition: []
-  action:
-  - data:
-      addon: 7box_sync
-      input:
-        command: upd
-    service: hassio.addon_stdin
-
-- id: 'AwayMode_Activated'
+- id: AwayMode_Activated
   alias: AwayMode Activated
   trigger:
     platform: state
     entity_id: input_boolean.away_mode
     to: 'on'
   action:
-    - service: light.turn_off
-      data_template: 
-        entity_id: > 
-         {%- for device in dict(states.light|groupby("state"))["on"] if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor  %}         
-    - service: notify.vicky_pushbullet
-      data_template:
-        title: "HA Alert"
-        message: "No One Is Home And The Lights Were Left On. I Turned Them Off For You"
-    - service: notify.vicky_pushbullet
-      data_template:
-        title: ""
-        message: "setvar=:=AWAY_MODE=:=On"
-- id: 'AwayMode_DeActivated'
+  - service: light.turn_off
+    data_template:
+      entity_id: "{%- for device in dict(states.light|groupby(\"state\"))[\"on\"]\
+        \ if 'hue_' in device.entity_id  %}{%- if loop.first %}{% else %}, {% endif\
+        \ %}{{device.entity_id | lower }}{%- if loop.last %}{% endif %}{%- endfor\
+        \  %}         \n"
+  - service: notify.vicky_pushbullet
+    data_template:
+      title: HA Alert
+      message: No One Is Home And The Lights Were Left On. I Turned Them Off For You
+  - service: notify.vicky_pushbullet
+    data_template:
+      title: ''
+      message: setvar=:=AWAY_MODE=:=On
+- id: AwayMode_DeActivated
   alias: AwayMode DeActivated
   trigger:
     platform: state
     entity_id: input_boolean.away_mode
     to: 'off'
   action:
-    - service: notify.vicky_pushbullet
-      data_template:
-        title: ""
-        message: "setvar=:=AWAY_MODE=:=Off"
+  - service: notify.vicky_pushbullet
+    data_template:
+      title: ''
+      message: setvar=:=AWAY_MODE=:=Off
+- id: '1529633835407'
+  alias: USCIS Status
+  trigger:
+  - entity_id: sensor.uscis
+    from: 06/06/2018
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: Check USCIS status
+    service: notify.vicky_pushbullet
+- id: '1529804544792'
+  alias: Dim All Lights at 9.30PM
+  trigger:
+  - at: 09:30:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: script.day_dim_lights
+    service: script.turn_on
+- id: '1529804648233'
+  alias: 'Lights: eco Mode 11.30PM'
+  trigger:
+  - at: '11:30:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: script.all_light_eco_mode
+    service: script.turn_on

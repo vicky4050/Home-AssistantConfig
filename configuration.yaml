@@ -29,7 +29,7 @@ customizer:
 discovery:
   ignore:
     - plex_mediaserver
-    - harmony
+    #- harmony
     - roku
     - sabnzbd
     - philips_hue
@@ -62,24 +62,14 @@ alexa:
         - automation
         - cover
         - fan
-        - group
         - input_boolean
-        - light
         - media_player
         - scene
         - script
         - switch
 #  intents: !include_dir_merge_named alexa
+dialogflow:
 intent_script: !include includes/intent_script.yaml
-
-remote:
-  - platform: harmony
-    name: livingroom
-    host: !secret harmony_ip
-    username: !secret harmony_email
-    password: !secret harmony_pass
-    activity: Watch Fire TV
-  
 panel_iframe:
   nodered_flows:
     title: 'Node-RED Flows'
@@ -99,10 +89,7 @@ panel_custom:
     sidebar_title: Tiles
     sidebar_icon: mdi:view-dashboard
     url_path: tiles
-    config:
-      entities:
-        - entity: input_boolean.dummy_tiles
-          label: Switch 1
+    config: !include includes/tiles.yaml
 mqtt:
   broker: core-mosquitto
   username: !secret mqtt_username
@@ -125,16 +112,18 @@ logger: #!include includes/logger.yaml
 #cloud: !include includes/cloud.yaml
 http: !include includes/http.yaml
 switch: !include includes/switches.yaml
+remote: !include includes/remote.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 notify: !include includes/notify.yaml
 camera: !include includes/cameras.yaml
 shell_command: !include includes/shell_command.yaml
 hue: !include includes/philips_hue.yaml
+weblink: !include includes/weblink.yaml
 # sabnzbd: !include includes/sabnzbd.yaml
 # light: !include includes/light.yaml
 media_player: !include includes/media_players.yaml
 device_tracker: !include includes/device_tracker.yaml
-automation: !include automations/automations.yaml
+automation: !include automations.yaml
 scene: !include includes/scenes.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
