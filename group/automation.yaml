@@ -7,6 +7,8 @@ automation_view:
     - group.scenes_card
     - group.notification_card
     - group.light_override_card
+    - group.all_automations
+    - group.all_scripts
 action_scene_card:
   name: Actions
   control: hidden

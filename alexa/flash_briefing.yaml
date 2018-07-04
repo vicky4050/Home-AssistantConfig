@@ -1,0 +1,11 @@
+  # flash_briefings:
+  #   whoishome:
+  #     - title: Who's at home?
+  #       text: >
+  #         {%- if is_state('device_tracker.vicky', 'home') and
+  #                is_state('device_tracker.lechu', 'home') -%}
+  #           You are both home, you silly
+  #         {%- else -%}
+  #           Anne Therese is at {{ states("device_tracker.lechu") }}
+  #           and Paulus is at {{ states("device_tracker.vicky") }}
+  #         {% endif %}

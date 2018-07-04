@@ -34,8 +34,8 @@
 
 - platform: mqtt
   name: "Samsung Outlet"
-  state_topic: smartthings/Outlet/switch
-  command_topic: smartthings/Outlet/switch
+  state_topic: "smartthings/Outlet/switch/state"
+  command_topic: "smartthings/Outlet/switch/cmd"
   payload_on: "on"
   payload_off: "off"
   retain: true

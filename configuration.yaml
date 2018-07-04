@@ -6,6 +6,7 @@ homeassistant:
   unit_system: imperial
   time_zone: America/New_York  
   customize:  !include customize.yaml
+  
   # customize_glob:
   #   light.*:
   #     custom_ui_state_card: state-card-custom-ui
@@ -13,16 +14,9 @@ homeassistant:
 config:
 updater:
   reporting: no
-frontend:
-  themes: !include_dir_merge_named themes/
-  javascript_version: latest
-  extra_html_url:
-    - /local/custom_ui/state-card-floorplan.html
-    - /local/custom_ui/state-card-custom-ui.html
-    - /local/custom_ui/state-card-tiles.html
-  extra_html_url_es5:
-    - /local/custom_ui/state-card-custom-ui-es5.html
-    - /local/custom_ui/state-card-tiles_es5.html
+
+frontend: !include includes/frontend.yaml
+
 customizer:
   custom_ui: local
 
@@ -54,7 +48,18 @@ tts:
   #   voice: Salli
   #   # English UK Female
   #   # voice: Amy
-alexa:
+alexa: 
+  flash_briefings:
+    whoishome:
+      - title: Who's at home?
+        text: >
+          {%- if is_state('device_tracker.vicky_phone', 'home') and
+                 is_state('device_tracker.lechu_phone', 'home') -%}
+            You are both home, you silly
+          {%- else -%}
+            Lekshmi is at {{ states("device_tracker.lechu_phone") }}
+            and Vicky is at {{ states("device_tracker.vicky_phone") }}
+          {% endif %}
   smart_home:
     filter:
       include_domains:
@@ -106,9 +111,11 @@ mqtt:
 
 # Single Files
 history: #!include includes/history.yaml
-zone: !include includes/zones.yaml
 recorder: !include includes/recorder.yaml
+logbook: #!include includes/logbook.yaml
 logger: #!include includes/logger.yaml
+
+zone: !include includes/zones.yaml
 #cloud: !include includes/cloud.yaml
 http: !include includes/http.yaml
 switch: !include includes/switches.yaml
@@ -127,7 +134,6 @@ automation: !include automations.yaml
 scene: !include includes/scenes.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
-logbook: #!include includes/logbook.yaml
 rest_command: !include includes/rest.yaml
 
 # Group Merge Directory

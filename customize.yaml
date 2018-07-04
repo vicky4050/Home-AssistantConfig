@@ -137,3 +137,9 @@ switch.tplink_plug_01:
   icon: mdi:power-socket-us
 
 
+group.all_automations:
+  hidden: false
+  friendly_name: 'Automations'
+group.all_scripts:
+  hidden: false
+  friendly_name: 'Scripts'

@@ -1,7 +1,13 @@
 default: critical
 logs:
+  homeassistant.setup: fatal
+  homeassistant.loader: fatal
+  homeassistant.core: fatal
+
+  homeassistant.components.sensor: fatal
   homeassistant.components.mqtt: critical
   homeassistant.components: info
   homeassistant.components.rfxtrx: debug
   homeassistant.components.device_tracker: critical
   homeassistant.components.camera: critical
+  homeassistant.components.device_tracker.mqtt: warning

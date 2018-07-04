@@ -32,13 +32,13 @@
      inkscape:window-height="1017"
      id="namedview174"
      showgrid="false"
-     inkscape:zoom="2.4583334"
-     inkscape:cx="382.03589"
-     inkscape:cy="186.06311"
+     inkscape:zoom="13.906434"
+     inkscape:cx="594.49998"
+     inkscape:cy="81.301696"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="g189-0-3-7" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -880,7 +880,7 @@
     </g>
     <g
        id="switch.switch01"
-       transform="matrix(0.45482208,0,0,0.42873503,352.49316,648.84586)">
+       transform="matrix(0.45482208,0,0,0.39917527,352.49316,653.32945)">
       <circle
          cx="669.32098"
          cy="582.56598"
@@ -1077,7 +1077,6 @@
 
 
 
-
       g&gt;
 	<g
    transform="matrix(0.54757803,-9.2060501e-4,0.00108408,0.46500539,103.27731,347.5006)"
@@ -1268,12 +1267,11 @@
          style="display:inline;opacity:1">
         <ellipse
            ry="22.483679"
-           rx="22.483658"
+           rx="22.483658"           
            transform="rotate(90)"
            style="fill:#ffffff;stroke:#b1b1b1;stroke-width:2.99117541"
            cy="-268.72888"
-           cx="661.59692"
-           id="ellipse228">
+           cx="661.59692">
           <title
              id="title4278-2-1-1-8">Circle</title>
         </ellipse>
@@ -1288,32 +1286,6 @@
              style="stroke-width:9.04294014" />
         </g>
       </g>
-    </g>
-    <g
-       style="display:inline;opacity:1"
-       id="switch.tv_plug"
-       transform="matrix(0.34740067,0,0,0.3157362,-186.25655,586.13568)">
-      <circle
-         cx="669.32098"
-         cy="582.56598"
-         style="fill:#ffffff;stroke:#b1b1b1;stroke-width:3"
-         transform="matrix(0,0.986791,-0.986793,0,1171.3179,-546.99774)"
-         id="button-cricle-kith-5"
-         r="38.708"
-         class="light-circle" />
-      <circle
-         style="fill:#ffffff;stroke-width:0"
-         r="9.1669998"
-         class="light-detail"
-         id="circle365-8"
-         cy="95.283875"
-         cx="596.04517" />
-      <path
-         d="m 607.765,100.716 c -0.886,0.887 -0.886,2.325 0,3.213 8.715,8.723 4.717,23.61 -7.195,26.795 -1.348,0.36 -2.738,0.543 -4.133,0.544 v 0 c -12.331,-0.004 -20.034,-13.355 -13.865,-24.033 0.698,-1.208 1.551,-2.319 2.537,-3.306 1.28,-1.193 0.789,-3.325 -0.884,-3.837 -0.832,-0.254 -1.736,-0.013 -2.329,0.624 -11.188,11.201 -6.055,30.311 9.238,34.4 1.73,0.462 3.512,0.697 5.303,0.698 v 0 c 15.831,-0.007 25.717,-17.148 17.796,-30.855 -0.896,-1.55 -1.99,-2.976 -3.255,-4.243 -0.887,-0.887 -2.326,-0.887 -3.213,0 z m -9.055,16.45 v -23.74 c 0,-1.749 -1.894,-2.843 -3.41,-1.968 -0.703,0.406 -1.136,1.156 -1.136,1.968 v 23.74 c 0,1.75 1.894,2.844 3.41,1.969 0.703,-0.406 1.136,-1.157 1.136,-1.969 z"
-         style="fill:#b1b1b1"
-         id="path36-4"
-         class="light-icon"
-         inkscape:connector-curvature="0" />
     </g>
   </g>
 </svg>

@@ -43,6 +43,7 @@ groups:
       - light.computer_room
       - switch.switch01
       - switch.switch02
+      - switch.tv_plug
       - input_boolean.kitchen_light_auto_disable
       - input_boolean.living_light_auto_disable
     states:
@@ -74,8 +75,7 @@ groups:
       - switch.sonoff_twenty
       - switch.sonoff_goldie
       - switch.sonoff_2gallon
-      - switch.sonoff_nano
-      - switch.tv_plug
+      - switch.sonoff_nano      
       - switch.switch_01
     states:
       - state: 'on'

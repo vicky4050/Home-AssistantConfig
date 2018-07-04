@@ -349,7 +349,7 @@
       message: Check USCIS status
     service: notify.vicky_pushbullet
 - id: '1529804544792'
-  alias: Dim All Lights at 9.30PM
+  alias: Lights Dim All at 9.30PM
   trigger:
   - at: 09:30:00
     platform: time
@@ -367,4 +367,15 @@
   action:
   - data:
       entity_id: script.all_light_eco_mode
+    service: script.turn_on
+- id: '1530270699054'
+  alias: 'Lights off Sunrise '
+  trigger:
+  - event: sunrise
+    offset: '10'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: script.everything_off
     service: script.turn_on
