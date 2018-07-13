@@ -379,3 +379,29 @@
   - data:
       entity_id: script.everything_off
     service: script.turn_on
+- id: '1530270699154'
+  alias: 'Turn light off at night'
+  trigger:
+    platform: state
+    entity_id: group.room3_huelight_groups
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 30      
+  condition:
+    condition: time
+    after: '00:00:00'
+    before: '06:00:00'
+  action:
+  - data:
+      entity_id: group.room2_huelight_groups
+    service: light.turn_off  
+- id: '1530270699184'
+  alias: 'Turn Single light on at 10PM'
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  action:
+    service: script.turn_on
+    entity_id: script.single_bulb_mode
+

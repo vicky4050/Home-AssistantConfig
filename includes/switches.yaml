@@ -31,14 +31,6 @@
   payload_off: "OFF"
   retain: true
 
-
-- platform: mqtt
-  name: "Samsung Outlet"
-  state_topic: "smartthings/Outlet/switch/state"
-  command_topic: "smartthings/Outlet/switch/cmd"
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
 ###########################################################
 # ETECK RF Switches
 ############################################################
@@ -188,6 +180,11 @@
       command_on: !secret sonoff_2gallon_on_ifttt
       command_off: !secret sonoff_2gallon_off_ifttt
       friendly_name: "2 Gallon"
+    samsung_outlet:
+      command_on: !secret samsung_plug_on_ifttt
+      command_off: !secret samsung_plug_off_ifttt
+      friendly_name: "Outlet"
+    
     # #Switch for Foscam Motion Detection
     # foscam_motion:
       # command_on: 'curl -k "https://192.168.1.37:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=arunrajappan@gmail.com&pwd=foscam4050"'

@@ -143,3 +143,8 @@ group.all_automations:
 group.all_scripts:
   hidden: false
   friendly_name: 'Scripts'
+script.computerroom_sleepmode:
+  can_cancel: false
+script.bedroom_sleepmode:
+  can_cancel: false
+    

@@ -36,7 +36,6 @@
   device_class: smoke
   retain: true
 
-
 # - platform: mqtt
   # name: "Zanzito status"
   # state_topic: "zanzito/samsung_s8/status"
