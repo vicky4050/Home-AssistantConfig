@@ -118,6 +118,10 @@ logger: #!include includes/logger.yaml
 zone: !include includes/zones.yaml
 #cloud: !include includes/cloud.yaml
 http: !include includes/http.yaml
+# http:
+  # base_url: vickyha.duckdns.org
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
 switch: !include includes/switches.yaml
 remote: !include includes/remote.yaml
 binary_sensor: !include includes/binary_sensors.yaml

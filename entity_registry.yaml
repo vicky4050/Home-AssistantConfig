@@ -1,60 +1,75 @@
 light.hue_color_lamp_2:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:72:44:72-0b
 light.hue_white_lamp_3:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:d1:fa:dd-0b
 light.hue_color_lamp_3:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:72:5f:d3-0b
 light.hue_white_lamp_4:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:fb:3a:60-0b
 light.hue_white_lamp_6:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:a3:da:c1-0b
 light.hue_color_lamp_1:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:70:62:b7-0b
 light.hue_white_lamp_1:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:f8:0b:8c-0b
 light.hue_white_lamp_2:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:d0:b6:60-0b
 light.hue_white_lamp_5:
+  config_entry_id: 51491060b5a349a29a06fc49457a4e9e
   name:
   platform: hue
   unique_id: 00:17:88:01:02:c6:f3:df-0b
 sensor.allergy_index_today:
+  config_entry_id:
   name:
   platform: pollen
   unique_id: 07662_allergy_index_today
 sensor.allergy_index_historical_average:
+  config_entry_id:
   name:
   platform: pollen
   unique_id: 07662_allergy_index_historical_average
 sensor.allergy_index_forecasted_average:
+  config_entry_id:
   name:
   platform: pollen
   unique_id: 07662_allergy_index_forecasted_average
 sensor.allergy_index_tomorrow:
+  config_entry_id:
   name:
   platform: pollen
   unique_id: 07662_allergy_index_tomorrow
 sensor.cold__flu_forecasted_average:
+  config_entry_id:
   name:
   platform: pollen
   unique_id: 07662_cold__flu_forecasted_average
 media_player.computer_room_speaker:
+  config_entry_id:
   name:
   platform: cast
   unique_id: a0ee8365-ffc2-569f-b3ee-591ed3a547e4
